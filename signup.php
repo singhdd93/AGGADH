@@ -7,22 +7,16 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
-        <?php include './includes/db.php';?>
+        <title>SignUp</title>
     </head>
     <body>
+        <form action="confirm.php" method="POST">
+            <input type="email" name="email" value="" placeholder="Email" />
+            <input type="password" name="pass" value="" placeholder="Password" />
+            <input type="submit" name="submit" value="Sign Up" />
+        </form>
         <?php
         // put your code here
-        if($conn)
-        {
-            echo 'Connection Sucess';
-        }
-        else
-        {
-            echo 'Fail'; 
-        }
         ?>
-        <a href="login.php">Login</a>
-        <a href="signup.php">SignUp</a>
     </body>
 </html>
