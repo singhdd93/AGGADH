@@ -16,27 +16,6 @@ and open the template in the editor.
 //            echo "Connection Sucess";
 //        }
 
-        function random_numbers($digits) {
-            $min = pow(10, $digits - 1);
-            $max = pow(10, $digits) - 1;
-            $no = mt_rand($min, $max);
-            $cquery = "Select * from users_reg WHERE `profile_id`= ? ;";
-
-            $q = $conn->prepare($cquery);
-            if ($q === FALSE) {
-                trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $conn->error, E_USER_ERROR);
-            }
-            $q->bind_param('i', $no);
-            $q->execute();
-            $q->store_result();
-            if ($q->num_rows > 0) {
-                $q->close();
-                random_numbers(10);
-            } else {
-                $q->close();
-                return $no;
-            }
-        }
         ?>
 
     </head>
@@ -64,17 +43,19 @@ and open the template in the editor.
             } else {
                 $q->close();
 
+                $pi = uniqid("",true);
+                
                 $insquery = "INSERT INTO users_reg(`email`,`password`,`profile_id`,`confirm_code`) VALUES(?,?,?,?)";
                 $qs = $conn->prepare($insquery);
 
-                if ($q1 === FALSE) {
+                if ($qs === FALSE) {
                     trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $conn->error, E_USER_ERROR);
                 }
 
                 $qs->bind_param('ssis', $ems, $pass, $pid, $cc);
                 $ems = $em;
                 $pass = sha1($psd) . md5($psd);
-                $pid = random_numbers(10);
+                $pid = substr($pi, 0, 10);
                 $cc = md5($em);
                 $qs->execute();
                 $rows = $qs->affected_rows;
@@ -89,7 +70,7 @@ and open the template in the editor.
                             . "\n If you are unable to open link directly please copy and "
                             . "paste the link in your browser. \n Thanks";
 
-                    $header = "From: singh.damandeep@gmail.com \r\n";
+                    $headers = "From: singh.damandeep@gmail.com \r\n";
                     $param = "-f singh.damandeep@gmail.com";
 
                     $send_mail = mail($em, $subject, $message, $headers, $param);

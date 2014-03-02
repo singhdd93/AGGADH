@@ -23,27 +23,31 @@ and open the template in the editor.
             $em = $_GET['email'];
             $q->execute();
             $q->bind_result($cc, $pro);
+            $q->fetch();
             $q->close();
 
             if ($cc == $_GET['code']) {
-                $updateq = "UPDATE users_reg set `is_active` = ? "
-                        . "`confirm_code` = ? WHERE `email` = ?";
-                $q = $conn->prepare($updateq);
-                if ($q === FALSE) {
+                $updateq = "UPDATE users_reg set `is_active` = ?, `confirm_code` = ? WHERE `email` = ?";
+                $qss = $conn->prepare($updateq);
+                if ($qss === FALSE) {
                     trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $conn->error, E_USER_ERROR);
                 }
-                $q->bind_param('iss', $active, $con, $em);
+                $qss->bind_param('iss', $active, $con, $em);
                 $active = 1;
                 $con = 'confirmed';
-                $q->execute();
-                $rows = $q->affected_rows;
+                $qss->execute();
+                $rows = $qss->affected_rows;
                 if ($rows == 1) {
                     header("location:details.php?pro=$pro");
                 } else {
                     echo "This id is already confirmed";
                 }
+                $qss->close();
                 $conn->close();
             }
+            else {
+                    echo "This id is already confirmed";
+                }
         }
         ?>
     </body>

@@ -8,16 +8,19 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
+        
         <?
         if (!isset($_GET['pro'])) {
-            header("locattion:index.php");
-        } else {
-            include './includes/db.php';
+            header("location:index.html");
+        }
+        else
+        {
+            $a=$_GET['pro'];
         }
         ?>
     </head>
     <body>
-        <form method="post" action="details.php">
+        <form method="post" action="details.php?pro=<?echo $a; ?>">
             <input type="text" name="usersname" placeholder="Name" />
             <select required="required" name="dobd" >
                 <option value="" label="Day" selected="selected">Day</option>
@@ -100,29 +103,31 @@ and open the template in the editor.
         </form>
         <?php
         // put your code here
+        include 'includes/db.php';
         if (isset($_POST['sub'])) {
             $dobd = $_POST['dobd'];
             $dobm = $_POST['dobm'];
             $doby = $_POST['doby'];
 
             $insq = "INSERT into users_info VALUES(?, ?, ?, ?, ?, ?)";
-            $q = $conn->prepare($insq);
-            $q->bind_param('ssisis', $name, $dob, $contact, $sex, $prof, $us_name);
+            $qd=$conn->prepare($insq);
+            
+            $qd->bind_param('ssisis', $name, $dob, $contact, $sex, $prof, $us_name);
             $name = $_POST['usersname'];
             $dob = "$doby-$dobm-$dobd";
             $contact = $_POST['contactno'];
             $sex = $_POST['sex'];
             $prof = $_GET['pro'];
             $us_name = $_POST['user_name'];
-            $q->execute();
-            $rows = $q->affected_rows;
+            $qd->execute();
+            $rows = $qd->affected_rows;
             if ($rows == 1) {
                 echo "<p> Your Details have been added.</p>"
                 . "<p>Please Login with your Username & Password</p>"
                 . "<p>Thank You</p>";
             }
-            $q->close();
-            $conn->close();
+            $qd->close();
+           
         }
         ?>
     </body>
