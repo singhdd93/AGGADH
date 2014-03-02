@@ -38,7 +38,7 @@ and open the template in the editor.
                 $qss->execute();
                 $rows = $qss->affected_rows;
                 if ($rows == 1) {
-                    header("location:details.php?pro=$pro");
+                    header("location:details.php?pro=$pro&h=0");
                 } else {
                     echo "This id is already confirmed";
                 }

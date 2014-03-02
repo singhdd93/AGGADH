@@ -20,7 +20,11 @@ and open the template in the editor.
         ?>
     </head>
     <body>
-        <form method="post" action="details.php?pro=<?echo $a; ?>">
+        <? if($_GET['h'] == 0)
+        {
+            ?>
+            
+        <form method="post" action="details.php?pro=<?echo $a; ?>&h=1">
             <input type="text" name="usersname" placeholder="Name" />
             <select required="required" name="dobd" >
                 <option value="" label="Day" selected="selected">Day</option>
@@ -98,9 +102,12 @@ and open the template in the editor.
                 <option value="f" label="Female">Female</option>
             </select>
             <!-- Live Validation to be implemented using JavaScript -->
-            <input type="text" name="user_name" placeholder="User Name" />
+            <input type="text" name="user_name" placeholder="User Name" onblur="" />
             <input type="submit" name="sub" value="Submit" />
         </form>
+        <?
+        }
+        ?>
         <?php
         // put your code here
         include 'includes/db.php';
