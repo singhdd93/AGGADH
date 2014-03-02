@@ -19,7 +19,23 @@ and open the template in the editor.
         function random_numbers($digits) {
             $min = pow(10, $digits - 1);
             $max = pow(10, $digits) - 1;
-            return mt_rand($min, $max);
+            $no = mt_rand($min, $max);
+            $cquery = "Select * from users_reg WHERE `profile_id`= ? ;";
+
+            $q = $conn->prepare($cquery);
+            if ($q === FALSE) {
+                trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $conn->error, E_USER_ERROR);
+            }
+            $q->bind_param('i', $no);
+            $q->execute();
+            $q->store_result();
+            if ($q->num_rows > 0) {
+                $q->close();
+                random_numbers(10);
+            } else {
+                $q->close();
+                return $no;
+            }
         }
         ?>
 
