@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.6
+-- version 3.5.8.1deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 01, 2014 at 04:00 PM
--- Server version: 5.5.33
--- PHP Version: 5.5.3
+-- Generation Time: Mar 03, 2014 at 02:01 PM
+-- Server version: 5.5.34-0ubuntu0.13.04.1
+-- PHP Version: 5.4.9-4ubuntu2.4
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,21 +17,18 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `dhagga`
+-- Database: `aggadh`
 --
-CREATE DATABASE IF NOT EXISTS `dhagga` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `dhagga`;
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `branches`
 --
--- Creation: Mar 01, 2014 at 07:52 AM
+-- Creation: Mar 03, 2014 at 08:31 AM
 --
 
-DROP TABLE IF EXISTS `branches`;
-CREATE TABLE `branches` (
+CREATE TABLE IF NOT EXISTS `branches` (
   `branch_id` int(11) NOT NULL AUTO_INCREMENT,
   `branch_name` varchar(255) NOT NULL,
   `bn_slug` varchar(255) NOT NULL,
@@ -44,11 +41,10 @@ CREATE TABLE `branches` (
 --
 -- Table structure for table `branch_sub_map`
 --
--- Creation: Mar 01, 2014 at 07:52 AM
+-- Creation: Mar 03, 2014 at 08:31 AM
 --
 
-DROP TABLE IF EXISTS `branch_sub_map`;
-CREATE TABLE `branch_sub_map` (
+CREATE TABLE IF NOT EXISTS `branch_sub_map` (
   `branch_id` int(11) NOT NULL,
   `sub_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -58,11 +54,10 @@ CREATE TABLE `branch_sub_map` (
 --
 -- Table structure for table `level`
 --
--- Creation: Mar 01, 2014 at 07:52 AM
+-- Creation: Mar 03, 2014 at 08:31 AM
 --
 
-DROP TABLE IF EXISTS `level`;
-CREATE TABLE `level` (
+CREATE TABLE IF NOT EXISTS `level` (
   `level_id` int(11) NOT NULL AUTO_INCREMENT,
   `level_name` varchar(255) NOT NULL,
   PRIMARY KEY (`level_id`)
@@ -73,11 +68,10 @@ CREATE TABLE `level` (
 --
 -- Table structure for table `quest_web_tech`
 --
--- Creation: Mar 01, 2014 at 07:52 AM
+-- Creation: Mar 03, 2014 at 08:31 AM
 --
 
-DROP TABLE IF EXISTS `quest_web_tech`;
-CREATE TABLE `quest_web_tech` (
+CREATE TABLE IF NOT EXISTS `quest_web_tech` (
   `quest_id` int(11) NOT NULL AUTO_INCREMENT,
   `topic_id` int(11) NOT NULL,
   `quest` text NOT NULL,
@@ -95,11 +89,10 @@ CREATE TABLE `quest_web_tech` (
 --
 -- Table structure for table `subjects`
 --
--- Creation: Mar 01, 2014 at 07:52 AM
+-- Creation: Mar 03, 2014 at 08:31 AM
 --
 
-DROP TABLE IF EXISTS `subjects`;
-CREATE TABLE `subjects` (
+CREATE TABLE IF NOT EXISTS `subjects` (
   `sub_id` int(11) NOT NULL AUTO_INCREMENT,
   `sub_name` varchar(255) NOT NULL,
   `sub_slug` varchar(255) NOT NULL,
@@ -112,11 +105,10 @@ CREATE TABLE `subjects` (
 --
 -- Table structure for table `sub_topic_map`
 --
--- Creation: Mar 01, 2014 at 07:52 AM
+-- Creation: Mar 03, 2014 at 08:31 AM
 --
 
-DROP TABLE IF EXISTS `sub_topic_map`;
-CREATE TABLE `sub_topic_map` (
+CREATE TABLE IF NOT EXISTS `sub_topic_map` (
   `sub_id` int(11) NOT NULL,
   `topic_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -126,11 +118,10 @@ CREATE TABLE `sub_topic_map` (
 --
 -- Table structure for table `topics`
 --
--- Creation: Mar 01, 2014 at 07:52 AM
+-- Creation: Mar 03, 2014 at 08:31 AM
 --
 
-DROP TABLE IF EXISTS `topics`;
-CREATE TABLE `topics` (
+CREATE TABLE IF NOT EXISTS `topics` (
   `topic_id` int(11) NOT NULL AUTO_INCREMENT,
   `topic_name` varchar(255) NOT NULL,
   `topic_slug` varchar(255) NOT NULL,
@@ -143,11 +134,10 @@ CREATE TABLE `topics` (
 --
 -- Table structure for table `users_info`
 --
--- Creation: Mar 01, 2014 at 07:52 AM
+-- Creation: Mar 03, 2014 at 08:31 AM
 --
 
-DROP TABLE IF EXISTS `users_info`;
-CREATE TABLE `users_info` (
+CREATE TABLE IF NOT EXISTS `users_info` (
   `name` text NOT NULL,
   `dob` date NOT NULL,
   `contact_no` char(13) NOT NULL,
@@ -158,16 +148,21 @@ CREATE TABLE `users_info` (
   KEY `profile_id` (`profile_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- RELATIONS FOR TABLE `users_info`:
+--   `profile_id`
+--       `users_reg` -> `profile_id`
+--
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `users_reg`
 --
--- Creation: Mar 01, 2014 at 07:52 AM
+-- Creation: Mar 03, 2014 at 08:31 AM
 --
 
-DROP TABLE IF EXISTS `users_reg`;
-CREATE TABLE `users_reg` (
+CREATE TABLE IF NOT EXISTS `users_reg` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
   `password` text NOT NULL,
