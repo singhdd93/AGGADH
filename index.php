@@ -36,7 +36,7 @@
             <div id="header" class="container">
 
                 <!-- Logo -->
-                <h1 id="logo"><a href=""><p>DHAGGA</p><p id="tagline">Educating Minds</p></a></h1>
+                <h1 id="logo"><a href=""><p>AGGADH</p><p id="tagline">Infinite Learning</p></a></h1>
 
                 <!-- Nav -->
                 <nav id="nav">
@@ -53,7 +53,7 @@
             <!-- Hero -->
             <section id="hero" class="container">
                 <header>
-                    <h2>DHAGGA is an E-Learning<br />
+                    <h2>AGGADH is an E-Learning<br />
                         and Quiz application</h2>
                 </header>
                 <p>Designed and built to provide extensive learning for
@@ -130,7 +130,7 @@
             <!-- Copyright -->
             <div id="copyright" class="container">
                 <ul class="menu">
-                    <li>&copy; DHAGGA. All rights reserved.</li>
+                    <li>&copy; AGGADH. All rights reserved.</li>
                     <li>Design: <a href="http://html5up.net/">HTML5 UP</a></li>
                 </ul>
             </div>
