@@ -136,3 +136,15 @@
 		padding-top: 2em;
 		margin-top: 3em;
 	}
+        
+        #tagline
+        {
+            padding: 0;
+            margin: 0;
+            text-transform: none;
+            display:compact;
+            margin-top: -80px;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: normal;
+        }
