@@ -1102,6 +1102,28 @@
 		position: relative;
 		z-index: 1;
 	}
+        .social
+        {
+                position: relative;
+                z-index: 2; 
+                float: right;
+        }
+        
+        .social ul li
+        {
+            display: inline;
+            float: left;
+        }
+        .social ul li a
+        {
+            margin: 0;
+            padding: 0;
+            text-align: left;
+            display: inline-block;
+            float: left;
+            padding: 0em 0.5em;
+            border: 0px #27636B none;
+        }
 
 /*********************************************************************************/
 /* Copyright                                                                     */
@@ -1112,6 +1134,5 @@
 		position: relative;
 		z-index: 1;
 		text-align: center;
-		border-top: solid 1px #d2d7dc;
 		color: #a2a7ac;
 	}
