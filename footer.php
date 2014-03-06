@@ -16,7 +16,7 @@
                     <!-- end: Footer Menu Logo -->
 
                     <!-- start: Footer Menu Links-->
-                    <div class="span9">
+                    <div class="span5">
 
                         <div id="footer-menu-links">
 
@@ -36,6 +36,22 @@
 
                     </div>
                     <!-- end: Footer Menu Links-->
+                    <div class="span1">
+                        <div id="footer-menu-links">
+                        <h4>Follow Us:</h4>
+                        </div>
+                    </div>
+                    <div class="span3" id="social-footer">
+                        <div id="footer-menu-links">
+                        <ul class="social-bookmarks">
+                            <li class="twitter"><a href="#"></a></li>
+                            <li class="facebook"><a href="#"></a></li>
+                            <li class="linkedin"><a href="#"></a></li>
+                            <li class="youtube"><a href="#"></a></li>
+                                                    
+                        </ul>
+                        </div>
+                    </div>
 
                     <!-- start: Footer Menu Back To Top -->
                     <div class="span1">

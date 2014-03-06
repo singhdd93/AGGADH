@@ -1196,6 +1196,12 @@ a.buy:hover {
 	border-bottom: 5px double #f6f6f6;
 }
 
+#social-footer
+{
+    margin-left: 0px;
+    padding-right: 20px;
+}
+
 /* Newsletter Form
 ====================================================================== */
 
