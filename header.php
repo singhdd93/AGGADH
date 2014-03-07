@@ -100,7 +100,7 @@
                                         <li class="<?=echoActiveClassIfRequestMatches("services")?>"><a href="">Services</a></li>
                                         <li class="<?=echoActiveClassIfRequestMatches("contact")?>"><a href="">Contact</a></li>
                                         <li class="<?=echoActiveClassIfRequestMatches("signup")?>"><a href="signup.php">Sign Up</a></li>
-                                        <? if(isset($_SESSION['user']))
+                                        <? if(!isset($_SESSION['user']))
                                         {?>
                                         <li class="dropdown ">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Log In <b class="caret"></b></a>
