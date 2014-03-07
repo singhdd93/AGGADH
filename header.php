@@ -105,9 +105,11 @@
                                         <li class="dropdown ">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Log In <b class="caret"></b></a>
 
-                                            <ul class="dropdown-menu">
-                                                <div class="login-form">
-                                                    <form  method="post" action="logincheck.php">
+                                            <div class="login-form dropdown-menu">
+                                                <form  method="post" action="logincheck.php">
+                                            <ul class="">
+                                                
+                                                    
                                                         <li>
                                                             <div class="input2">
                                                                 <input type="text" name="user_name" value="" placeholder="Username"/>
@@ -122,13 +124,10 @@
                                                             <div class="actions2">
                                                                 <input type="submit" name="sub" value="Login"/>
                                                             </div>
-                                                        </li>
-                                                  
-                                                     </form>
-
-                                                </div>
-                                                </div>
+                                                        </li>                                                
                                             </ul>
+                                                    </form>
+                                                 </div>
                                         </li>
                                         <? }
                                         ?>

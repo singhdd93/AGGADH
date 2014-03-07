@@ -157,6 +157,11 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
     display: block;    
 }
 
+ul.nav li.dropdown:hover > div.dropdown-menu {
+    display: block;    
+}
+
+
 /* Page Title
 =================================================================== */
 
@@ -1345,6 +1350,17 @@ form#newsletter input[type=submit] {
    
 }
 
+.login-form form
+{
+    margin: 0;
+    padding: 0;
+}
+
+.actions2 
+{
+    padding: 3px 0px 5px;
+}
+
 .actions2 input
 {
    border: #999 2px solid;
@@ -1354,7 +1370,8 @@ form#newsletter input[type=submit] {
    background: #fff;
    color: #333;
    font-size: 15px;
-   font-weight: 550;
+   font-weight: 500;
+   padding:3px 0px 3px 0px;
 }
 
 .input2
