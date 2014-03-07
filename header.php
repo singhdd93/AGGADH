@@ -107,7 +107,7 @@
 
                                             <ul class="dropdown-menu">
                                                 <div class="login-form">
-                                                    <form  method="post" action="profile.php">
+                                                    <form  method="post" action="logincheck.php">
                                                         <li>
                                                             <div class="input2">
                                                                 <input type="text" name="user_name" value="" placeholder="Username"/>
