@@ -1303,10 +1303,10 @@ form#newsletter input[type=submit] {
 
 .ie7 .flickr-widget a {width: 54px; height: 54px;}
 
-/* SignUp Login Forms
+/* SignUp / Login Forms
 ====================================================================== */
 
-.signup-form
+.signup-form, .login-form
 {
     text-align: center;
 }
@@ -1337,7 +1337,7 @@ form#newsletter input[type=submit] {
    font-weight: 600;
 }
 
-.actions input:hover
+.actions input:hover, .actions2 input:hover
 {
 
    background: rgba(49,124,249,0.8);
@@ -1345,7 +1345,29 @@ form#newsletter input[type=submit] {
    
 }
 
+.actions2 input
+{
+   border: #999 2px solid;
+   border-radius: 10px;
+   width: 60%;
+   min-height: 20px;
+   background: #fff;
+   color: #333;
+   font-size: 15px;
+   font-weight: 550;
+}
 
+.input2
+{
+    padding: 2px 0px 0px 0px;
+}
+.input2 input
+{
+    width: 85%;
+    padding: 5px;
+    border-radius: 10px;
+    
+}
 /* Custom Buttons Colors
 ====================================================================== */
 
