@@ -1332,12 +1332,12 @@ form#newsletter input[type=submit] {
 }
 .actions input
 {
-   border: #999 2px solid;
+   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
    border-radius: 10px;
    width: 30%;
    min-height: 50px;
-   background: #fff;
-   color: #333;
+   background-color: #317cf9;
+   color: #ffffff;
    font-size: 20px;
    font-weight: 600;
 }
@@ -1356,6 +1356,14 @@ form#newsletter input[type=submit] {
     padding: 0;
 }
 
+.actions input, .actions2 input
+{
+    -webkit-box-shadow:  1px 1px 1px #999;
+	-moz-box-shadow:  1px 1px 1px #999;
+	box-shadow:  1px 1px 1px #999;
+    
+}
+
 .actions2 
 {
     padding: 3px 0px 5px;
@@ -1363,12 +1371,12 @@ form#newsletter input[type=submit] {
 
 .actions2 input
 {
-   border: #999 2px solid;
+   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
    border-radius: 10px;
    width: 60%;
    min-height: 20px;
-   background: #fff;
-   color: #333;
+    background-color: #317cf9;
+    color: #ffffff;
    font-size: 15px;
    font-weight: 500;
    padding:3px 0px 3px 0px;
@@ -1488,7 +1496,7 @@ form#newsletter input[type=submit] {
 }
 
 .btn-success {
-  background-color: #5bb75b;
+  background-color: #317cf9;
   color: #ffffff;
   background-image: -moz-linear-gradient(top, #317cf9, #317cf9);
   background-image: -ms-linear-gradient(top, #317cf9, #317cf9);
@@ -1498,7 +1506,6 @@ form#newsletter input[type=submit] {
   background-image: linear-gradient(top, #317cf9, #317cf9);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#'89c236, endColorstr='#'89c236, GradientType=0);
-  border-color: #51a351 #51a351 #387038;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
