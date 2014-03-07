@@ -96,7 +96,7 @@
                                 <div class="nav-collapse collapse">
                                     <ul class="nav">
                                         <li class="<?=echoActiveClassIfRequestMatches("index")?>"><a href="index.php">Home</a></li>
-                                        <li class="<?=echoActiveClassIfRequestMatches("about")?>"><a href="">About</a></li>
+                                        <li class="<?=echoActiveClassIfRequestMatches("about")?>"><a href="about.php">About</a></li>
                                         <li class="<?=echoActiveClassIfRequestMatches("services")?>"><a href="">Services</a></li>
                                         <li class="<?=echoActiveClassIfRequestMatches("contact")?>"><a href="">Contact</a></li>
                                         <li class="<?=echoActiveClassIfRequestMatches("signup")?>"><a href="signup.php">Sign Up</a></li>
