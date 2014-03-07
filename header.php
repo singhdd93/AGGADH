@@ -21,31 +21,30 @@
         <meta property="og:image" content=""/>
         <!-- end: Facebook Open Graph -->
 
-        <? include './includes/db.php';
-        
+        <?
+        include './includes/db.php';
+
         session_start();
-        
-        if(! isset($_SESSION['user']))
-        {
+
+        if (!isset($_SESSION['user'])) {
             ?>
-                <script type="text/javascript">
-                   // alert("Not Logged In");
-                </script>   
-         
+            <script type="text/javascript">
+                // alert("Not Logged In");
+            </script>   
+
             <?
         }
-        
-        
-        function echoActiveClassIfRequestMatches($requestUri) {
-                    $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
 
-                    if ($current_file_name == $requestUri)
-                        echo 'active';
-                }
-                ?>
-        
-        
-        
+        function echoActiveClassIfRequestMatches($requestUri) {
+            $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
+
+            if ($current_file_name == $requestUri)
+                echo 'active';
+        }
+        ?>
+
+
+
         <!-- start: CSS -->
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/bootstrap-responsive.css" rel="stylesheet">
@@ -56,13 +55,13 @@
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Economica:700,400italic">
         <!-- end: CSS -->
 
-        
+
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 
-       
+
     </head>
     <body>
 
@@ -95,23 +94,44 @@
                                 </a>
                                 <div class="nav-collapse collapse">
                                     <ul class="nav">
+                                      
                                         <li class="<?=echoActiveClassIfRequestMatches("index")?>"><a href="index.php">Home</a></li>
-                                        <li class="<?=echoActiveClassIfRequestMatches("about")?>"><a href="">About</a></li>
+                                        <li class="<?=echoActiveClassIfRequestMatches("about")?>"><a href="about.php">About</a></li>
                                         <li class="<?=echoActiveClassIfRequestMatches("services")?>"><a href="">Services</a></li>
                                         <li class="<?=echoActiveClassIfRequestMatches("contact")?>"><a href="">Contact</a></li>
                                         <li class="<?=echoActiveClassIfRequestMatches("signup")?>"><a href="signup.php">Sign Up</a></li>
+                                        <? if(!isset($_SESSION['user']))
+                                        {?>
                                         <li class="dropdown ">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Log In <b class="caret"></b></a>
+
                                             <ul class="dropdown-menu">
-                                                <li><a href="#">Action</a></li>
-                                                <li><a href="#">Another action</a></li>
-                                                <li><a href="#">Something else here</a></li>
-                                                <li class="divider"></li>
-                                                <li class="nav-header">Nav header</li>
-                                                <li><a href="#">Separated link</a></li>
-                                                <li><a href="#">One more separated link</a></li>
+                                                <div class="login-form">
+                                                    <form  method="post" action="profile.php">
+                                                        <li>
+                                                            <div class="input2">
+                                                                <input type="text" name="user_name" value="" placeholder="Username"/>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="input2">
+                                                                <input type="password" name="pass" value="" placeholder="Password"/>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="actions2">
+                                                                <input type="submit" name="sub" value="Login"/>
+                                                            </div>
+                                                        </li>
+                                                  
+                                                     </form>
+
+                                                </div>
+                                                </div>
                                             </ul>
                                         </li>
+                                        <? }
+                                        ?>
                                     </ul>
                                 </div>
                             </div>
