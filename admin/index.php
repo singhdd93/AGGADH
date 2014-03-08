@@ -20,6 +20,7 @@
 
   <body>
 
+<?php ?>
     <div id="wrapper">
 
       <!-- Sidebar -->

@@ -160,5 +160,38 @@ table.tablesorter thead tr th:hover {
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
+  
+  .login-form
+  {
+      text-align: center;
+  }
+  
+  .login-form form
+  {
+      margin: 0;
+      padding: 0;
+  }
+  
+   .login-form img
+  {
+     
+      padding: 15px 0px 0px;
+  }
+  
+  
+  .login-form form input
+  {
+      padding: 10px 5px;
+      margin: 10px 0px;
+      min-width: 30%;
+      min-height: 40px;
+      font-size: 18px;
+      font-weight: 500;
+      border: #999 solid 2px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 1px #999;
+  }
+  
+
 
 }
