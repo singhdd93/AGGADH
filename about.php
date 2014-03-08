@@ -93,11 +93,10 @@
 								<div class="social_profiles">
 									<ul class="social-bookmarks">
 										<li class="facebook"><a href="">facebook</a></li>
-										<li class="flickr"><a href="">flickr</a></li>
 										<li class="googleplus"><a href="#">googleplus</a></li>
 										<li class="linkedin"><a href="#">linkedin</a></li>
 										<li class="twitter"><a href="#">twitter</a></li>
-										<li class="pinterest"><a href="#">pinterest</a></li>
+										<li class="github"><a href="#">github</a></li>
 									</ul>
 								</div>	
 							</div>
@@ -120,11 +119,10 @@
 								<div class="social_profiles">
 									<ul class="social-bookmarks">
 										<li class="facebook"><a href="">facebook</a></li>
-										<li class="flickr"><a href="">flickr</a></li>
 										<li class="googleplus"><a href="#">googleplus</a></li>
 										<li class="linkedin"><a href="#">linkedin</a></li>
 										<li class="twitter"><a href="#">twitter</a></li>
-										<li class="pinterest"><a href="#">pinterest</a></li>
+										<li class="github"><a href="#">github</a></li>
 									</ul>
 								</div>	
 							</div>
@@ -146,12 +144,93 @@
 								<div class="team-name">Lucas Luck <span> / Co-Founder, Project Manager</span></div>
 								<div class="social_profiles">
 									<ul class="social-bookmarks">
-										<li class="facebook"><a href="">facebook</a></li>
-										<li class="flickr"><a href="">flickr</a></li>
+										<li class="facebook"><a href="">facebook</a></li>									
 										<li class="googleplus"><a href="#">googleplus</a></li>
 										<li class="linkedin"><a href="#">linkedin</a></li>
 										<li class="twitter"><a href="#">twitter</a></li>
-										<li class="pinterest"><a href="#">pinterest</a></li>
+										<li class="github"><a href="#">github</a></li>
+									</ul>
+								</div>	
+							</div>
+							<!-- end: About Member -->
+						
+						</div>
+						<!-- end: Row -->
+                                                <div class="row">
+						
+							<!-- start: About Member -->
+							<div class="span4">
+								<div class="avatar view-team">
+									<img src="img/team_member.jpg" alt="team member">
+									<div class="mask">
+										<h2>About Me</h2>
+										<p>
+											Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
+										</p>
+										<a href="#" class="info">My Personal Page</a>
+									</div>
+								</div>
+								<div class="clear"></div>
+								<div class="team-name">Lucas Luck <span> / Co-Founder, General Manager</span></div>
+								<div class="social_profiles">
+									<ul class="social-bookmarks">
+										<li class="facebook"><a href="">facebook</a></li>
+										<li class="googleplus"><a href="#">googleplus</a></li>
+										<li class="linkedin"><a href="#">linkedin</a></li>
+										<li class="twitter"><a href="#">twitter</a></li>
+										<li class="github"><a href="#">github</a></li>
+									</ul>
+								</div>	
+							</div>
+							<!-- end: About Member -->
+
+							<!-- start: About Member -->
+							<div class="span4">
+								<div class="avatar view-team">
+									<img src="img/team_member.jpg" alt="team member">
+									<div class="mask">
+										<h2>About Me</h2>
+										<p>
+											Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
+										</p>
+										<a href="#" class="info">My Personal Page</a>
+									</div>
+								</div>
+								<div class="clear"></div>
+								<div class="team-name">Lucas Luck <span> / Co-Founder, Project Manager</span></div>
+								<div class="social_profiles">
+									<ul class="social-bookmarks">
+										<li class="facebook"><a href="">facebook</a></li>
+										<li class="googleplus"><a href="#">googleplus</a></li>
+										<li class="linkedin"><a href="#">linkedin</a></li>
+										<li class="twitter"><a href="#">twitter</a></li>
+										<li class="github"><a href="#">github</a></li>
+									</ul>
+								</div>	
+							</div>
+							<!-- end: About Member -->
+                                                        
+                                                        <!-- start: About Member -->
+							<div class="span4">
+								<div class="avatar view-team">
+									<img src="img/team_member.jpg" alt="team member">
+									<div class="mask">
+										<h2>About Me</h2>
+										<p>
+											Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
+										</p>
+										<a href="#" class="info">My Personal Page</a>
+									</div>
+								</div>
+								<div class="clear"></div>
+								<div class="team-name">Lucas Luck <span> / Co-Founder, Project Manager</span></div>
+								<div class="social_profiles">
+									<ul class="social-bookmarks">
+										<li class="facebook"><a href="">facebook</a></li>									
+										<li class="googleplus"><a href="#">googleplus</a></li>
+										<li class="linkedin"><a href="#">linkedin</a></li>
+										<li class="twitter"><a href="#">twitter</a></li>
+										<li class="github"><a href="#">github</a></li>
 									</ul>
 								</div>	
 							</div>

@@ -22,13 +22,13 @@
 
                             <ul id="footer-nav">
 
-                                <li><a href="index.php">Home</a></li>
+                                <li><a href="#">FAQ's</a></li>
 
-                                <li><a href="about.html">About</a></li>
+                                <li><a href="#">Site Map</a></li>
 
-                                <li><a href="services.html">Services</a></li>
+                                <li><a href="#">Credits</a></li>
 
-                                <li><a href="contact.html">Contact</a></li>
+                              
 
                             </ul>
 

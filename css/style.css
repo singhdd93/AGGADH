@@ -1178,7 +1178,6 @@ a.buy:hover {
 	text-decoration: none;
 	font-size: 12px;
 	font-family: 'Droid Sans';
-	text-transform: lowercase;
 	padding: 10px 15px 10px 0px;
 	margin: 0px 10px 0px 0px;
 	-webkit-transition: all 0.3s ease-in-out;
@@ -1715,5 +1714,17 @@ form#newsletter input[type=submit] {
 		min-height: 64px;
 	}
 	
+}
+.social_profiles
+{
+    text-align: center;
+    padding-bottom: 12px;
+    margin-top: -10px;
+}
+
+.social_profiles ul 
+{
+    display: inline-block;
+    position: relative;
 }
 	
