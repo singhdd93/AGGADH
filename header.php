@@ -77,7 +77,7 @@
                     <!--start: Logo -->
                     <div class="logo span3">
 
-                        <a class="brand" href="#"><img src="img/logo.png" alt="Logo"></a>
+                        <a class="brand" href="index.php"><img src="img/logo.png" alt="Logo"></a>
 
                     </div>
                     <!--end: Logo -->

@@ -8,7 +8,7 @@
 			<!-- start: Container -->
 			<div class="container">
 
-				<h2><i class="ico-stats ico-white"></i>Sign Up</h2>
+				<h2><i class="ico-circle-plus ico-white"></i>Sign Up</h2>
 
 			</div>
 			<!-- end: Container  -->

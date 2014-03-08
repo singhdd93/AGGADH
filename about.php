@@ -11,7 +11,7 @@
 			<!-- start: Container -->
 			<div class="container">
 
-				<h2><i class="ico-stats ico-white"></i>About Us</h2>
+				<h2><i class="ico-adress-book ico-white"></i>About Us</h2>
 
 			</div>
 			<!-- end: Container  -->
