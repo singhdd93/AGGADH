@@ -1,15 +1,4 @@
-<?php
-include './header.php';
-
-function getProfileid() {
-    $pi = uniqid();
-    $pis = hexdec($pi);
-    $len = strlen($pis);
-    $st = $len - 8;
-    $ret_id = substr($pis, $st);
-    return $ret_id;
-}
-?>
+<?php include './header.php'; ?>
 
 <div id="page-title">
 
@@ -48,39 +37,16 @@ function getProfileid() {
                         $em = $_POST['email'];
                         $psd = $_POST['pass'];
 
-                        $getquery = "Select * from users_reg WHERE `email`= ? ;";
-
-                        $q = $conn->prepare($getquery);
-                        if ($q === FALSE) {
-                            trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $conn->error, E_USER_ERROR);
-                        }
-                        $q->bind_param('s', $em);
-                        $q->execute();
-                        $q->store_result();
-                        if ($q->num_rows > 0) {
+                        $row = getRowsFromEmail($em);
+                        if ($row > 0) {
                             echo "<p>" . 'YOu have Entered the Email : ' . "$em". "</p>";
                             echo "<p>" . " You are already registered. Login to enter." . "</p>";
-                            $q->close();
-                            $conn->close();
+                            
                         } else {
-                            $q->close();
+                           
 
-                            $insquery = "INSERT INTO users_reg(`email`,`password`,`profile_id`,`confirm_code`) VALUES(?,?,?,?)";
-                            $qs = $conn->prepare($insquery);
-
-                            if ($qs === FALSE) {
-                                trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $conn->error, E_USER_ERROR);
-                            }
-
-                            $qs->bind_param('ssis', $ems, $pass, $pid, $cc);
-                            $ems = $em;
-                            $pass = sha1($psd) . md5($psd);
-                            $pid = getProfileid();
-                            $cc = md5($em);
-                            $qs->execute();
-                            $rows = $qs->affected_rows;
-                            $qs->close();
-                            $conn->close();
+                            $rows = regNewUser($em, $psd);
+                            
                             if ($rows == 1) {
                                 $subject = 'Confirm your Email Address';
                                 $message = "Dear User"

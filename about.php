@@ -1,7 +1,4 @@
-
-	
-	<!-- start: Page Title -->
-            <? include './header.php';?>
+<? include './header.php';?>
         
         
 	<div id="page-title">
