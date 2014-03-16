@@ -8,11 +8,30 @@ and open the template in the editor.
     Author     : DDS
 */
 
+h1,h2,h3,h4,h5,h6
+{
+   font-family: "Boogaloo" !important;
+	font-weight: normal !important;
+	color: #666;
+	margin: 0;
+	padding: 0;
+}
 .navbar-brand, .navbar-brand > img
 {
     margin: 0;
     padding: 0px 8px;
 }
+
+.mainheading
+{
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 48px;
+    padding: 12px 0px;
+    margin-top: 10px;
+}
+
+
 
 .login-form 
 {
