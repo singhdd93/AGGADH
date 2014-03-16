@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<? session_start();?><!DOCTYPE html>
 <html lang="en">
     <head>
 
@@ -22,10 +22,7 @@
         <!-- end: Facebook Open Graph -->
 
         <?
-        include './includes/db.php';
-
-        session_start();
-
+        include './includes/functions.php';
         if (!isset($_SESSION['user'])) {
             ?>
             <script type="text/javascript">
