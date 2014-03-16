@@ -8,7 +8,7 @@
 $DBServer = 'localhost'; // e.g 'localhost' or '192.168.1.100'
 $DBUser   = 'dds';
 $DBPass   = 'dds';
-$DBName   = 'dhagga';
+$DBName   = 'aggadh';
 
 $conn = new mysqli($DBServer, $DBUser, $DBPass, $DBName);
  

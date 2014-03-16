@@ -15,7 +15,7 @@ function getRowsFromEmail($email)
     global $conn;
                         $q = $conn->prepare($getquery);
                         if ($q === FALSE) {
-                            trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $conn->error, E_USER_ERROR);
+                            trigger_error('Error: ' . $conn->error, E_USER_ERROR);
                         }
                         $q->bind_param('s', $em);
                         $em = $email;
@@ -33,7 +33,7 @@ function regNewUser($em, $psd)
                             $qs = $conn->prepare($insquery);
 
                             if ($qs === FALSE) {
-                                trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $conn->error, E_USER_ERROR);
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
                             }
 
                             $qs->bind_param('ssis', $ems, $pass, $pid, $cc);
@@ -46,4 +46,27 @@ function regNewUser($em, $psd)
                             $qs->close();
                             
                             return $rows;
+}
+
+function adminLogin($username, $password)
+{
+    global $conn;
+    $query = "SELECT a_id from admins WHERE `a_username`=? AND `a_password`=? ;";
+                            $q = $conn->prepare($query);
+
+                            if ($q === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+
+                            $q->bind_param('ss', $userna,$passwo);
+                        $userna = $username;
+                        $passwo =$password;
+                        $q->execute();
+                        $q->bind_result($admin_id);
+                        $q->fetch();
+                        $q->close();
+                        
+                        
+                        return $admin_id;
+                        
 }
