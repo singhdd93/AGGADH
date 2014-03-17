@@ -159,3 +159,53 @@ function deleteBranch($id)
                             $qs->close();                            
                             return $rows;
 }
+
+
+function addSubject($subjectName, $subjectSlug)
+{
+    global $conn;
+    $insquery = "INSERT INTO subjects(`sub_name`,`sub_slug`) VALUES(?,?)";
+                            $qs = $conn->prepare($insquery);
+
+                            if ($qs === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+
+                            $qs->bind_param('ss', $bnn, $bns);
+                            $bnn = $subjectName;
+                            $bns = $subjectSlug;
+                            $qs->execute();
+                            $idd = $qs->insert_id;
+                            $qs->close();
+                            
+                            return $idd;
+}
+
+
+function mapSubjectToBranches($branch_id,$subject_id)
+{
+    global $conn;
+    $query = "INSERT INTO branch_sub_map VALUES (NULL,?,?)";
+    $q = $conn->prepare($query);
+
+                            if ($q === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+                            
+                            $q->bind_param("ii",$bid,$sid);
+                            $i=0;
+                            foreach ($branch_id as $bidd) {
+                                
+                                $bid=$bidd;
+                                $sid=$subject_id;
+                                $q->execute();
+                                $r = $q->affected_rows;
+                                if($r>0)
+                                {
+                                    $i++;
+                                }                     
+                            }
+                            $q->close();
+                            return $i;
+    
+}
