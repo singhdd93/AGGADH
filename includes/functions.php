@@ -177,8 +177,35 @@ function addSubject($subjectName, $subjectSlug)
                             $qs->execute();
                             $idd = $qs->insert_id;
                             $qs->close();
-                            
+                            addSubjectsTable($subjectSlug);
                             return $idd;
+}
+
+function addSubjectsTable($subSlug)
+{
+    global $conn;
+    $query = "CREATE TABLE IF NOT EXISTS `quest_$subSlug` (
+  `quest_id` int(11) NOT NULL AUTO_INCREMENT,
+  `topic_id` int(11) NOT NULL,
+  `quest` text NOT NULL,
+  `op_a` text NOT NULL,
+  `op_b` text NOT NULL,
+  `op_c` text NOT NULL,
+  `op_d` text NOT NULL,
+  `c_ans` char(1) NOT NULL,
+  `level_id` int(11) NOT NULL,
+  PRIMARY KEY (`quest_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1";
+    
+    $q = $conn->query($query); 
+}
+
+function delSubjectsTable($subSlug)
+{
+    global $conn;
+    $query = "DROP TABLE IF EXISTS `quest_$subSlug`;";
+    
+    $q = $conn->query($query); 
 }
 
 

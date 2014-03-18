@@ -15,6 +15,7 @@
         {
             $rr = deleteSubjectMap($_GET['id']);
             $r = deleteSubject($_GET['id']);
+            delSubjectsTable($_GET['slug']);
             
         }
         $arr = getSubjects();
@@ -33,7 +34,7 @@
             echo $bran[0]."<br/>";
         } ?></span></td>
                 <td><a class="btn btn-default" href="subject-edit.php?edit=1&id=<? echo $row['sub_id'];?>">EDIT</a></td>
-                <td><a class="btn btn-default" onclick="return confirm('Sure, you wanna do this ?')" href="subject-list.php?delete=1&id=<? echo $row['sub_id'];?>">DELETE</a></td>
+                <td><a class="btn btn-default" onclick="return confirm('Sure, you wanna do this ?')" href="subject-list.php?delete=1$slug=<? echo $row['sub_slug']; ?>&id=<? echo $row['sub_id'];?>">DELETE</a></td>
             </tr>
                         
                     <? }  ?>
