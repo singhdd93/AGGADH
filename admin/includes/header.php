@@ -47,6 +47,13 @@ require ("../includes/functions.php");?>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="../admin/subject-add.php">Add</a></li>
+            <li><a href="../admin/subject-list.php">List All</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Topics <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Add</a></li>
             <li><a href="#">List All</a></li>
           </ul>
         </li>
@@ -55,7 +62,7 @@ require ("../includes/functions.php");?>
           <ul class="dropdown-menu">
             <li><a href="#">Add</a></li>
             <li><a href="#">List All</a></li>
-            <li><a href="#">List All Subject Wise</a></li>
+            <li><a href="#">List All Topics Wise</a></li>
           </ul>
         </li>
         

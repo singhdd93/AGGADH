@@ -209,3 +209,68 @@ function mapSubjectToBranches($branch_id,$subject_id)
                             return $i;
     
 }
+
+
+function getSubjects()
+{
+    $getquery = "Select * from subjects ;";
+    global $conn;
+                        $res = $conn->query($getquery);
+                     
+                     return $res;
+}
+
+function getBranchIdsForSubject($sub_id)
+{
+    $query = "Select branch_id FROM branch_sub_map WHERE `sub_id` = ?";
+     global $conn;
+     
+     $q = $conn->prepare($query);
+
+                            if ($q === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+                            
+                            $q->bind_param("i",$sid);
+                            $sid = $sub_id;
+                            $q->execute();
+                            $q->bind_result($branch);
+                            while($q->fetch())
+                            {
+                                $branches[] = $branch;
+                            }
+                            return $branches;
+}
+
+
+function deleteSubjectMap($id)
+{
+    global $conn;
+    $insquery = "DELETE FROM branch_sub_map WHERE `sub_id` = ?";
+                            $qs = $conn->prepare($insquery);
+                            if ($qs === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+                            $qs->bind_param('i', $bid);                            
+                            $bid = $id;
+                            $qs->execute();
+                            $rows = $qs->affected_rows;
+                            $qs->close();                            
+                            return $rows;
+}
+
+function deleteSubject($id)
+{
+    global $conn;
+    $insquery = "DELETE FROM subjects WHERE `sub_id` = ?";
+                            $qs = $conn->prepare($insquery);
+                            if ($qs === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+                            $qs->bind_param('i', $bid);                            
+                            $bid = $id;
+                            $qs->execute();
+                            $rows = $qs->affected_rows;
+                            $qs->close();                            
+                            return $rows;
+}

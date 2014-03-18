@@ -21,16 +21,15 @@
 
                 <div class="container-fluid">
                     <div class="branch-list">
+                        <ul>
                         <? $arr = getBranches();
                         while($row = $arr->fetch_array())
                         {?>
-                        <div class="branch-row">
-                        <div class="col-lg-2"><input type="checkbox" name="branch[]" value="<? echo $row['branch_id']; ?>" />
-                        </div>
-                        <div class="col-lg-10"><span><? echo $row['branch_name'];?></span></div>
-                        </div>
+                            <li><input type="checkbox" name="branch[]" value="<? echo $row['branch_id']; ?>" /><label><? echo $row['branch_name'];?></label></li>
+                        
                         <?}
 ?>
+                        </ul>
                     </div>
 
                 </div>

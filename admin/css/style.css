@@ -102,18 +102,24 @@ h1,h2,h3,h4,h5,h6
     box-shadow: 3px 3px #aaa,inset 3px 3px 12px 4px #eaeaea;
 }
 
-.branch-list .branch-row
+.branch-list ul, .branch-list ul li
 {
-    padding-top: 12px;
-    padding-bottom: 30px;
-    display: block;
-    height: auto;
-    border-bottom: 1px solid #e0e0e0;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    margin: 0;
+    padding: 0px;
+    
 }
 
-.branch-list .branch-row input
+.branch-list ul li
 {
+    padding: 10px 12px;
     display: block;
+    border-bottom: 1px solid #e3e3e3;
+    margin: 0px 5px;
+}
+
+.branch-list ul li label
+{
+    padding-left: 10px;
+    font-weight: normal;
+    font-size: 15px;
 }
