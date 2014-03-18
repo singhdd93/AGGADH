@@ -3,12 +3,18 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Mar 16, 2014 at 05:37 PM
+-- Generation Time: Mar 19, 2014 at 12:56 AM
 -- Server version: 5.5.34
 -- PHP Version: 5.4.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `aggadh`
@@ -55,7 +61,20 @@ CREATE TABLE IF NOT EXISTS `branches` (
   `bn_slug` varchar(255) NOT NULL,
   PRIMARY KEY (`branch_id`),
   UNIQUE KEY `bn_slug` (`bn_slug`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `branches`
+--
+
+INSERT INTO `branches` (`branch_id`, `branch_name`, `bn_slug`) VALUES
+(1, 'Computer Science Engineering', 'computerscience'),
+(2, 'Electronics Engineering', 'electronics'),
+(5, 'Electrical Engineering', 'electrical'),
+(6, 'Mechanical Engineering', 'mech'),
+(7, 'Civil Engineering', 'civil'),
+(8, 'Production Engineering', 'production'),
+(9, 'Information Technology', 'it');
 
 -- --------------------------------------------------------
 
@@ -64,9 +83,19 @@ CREATE TABLE IF NOT EXISTS `branches` (
 --
 
 CREATE TABLE IF NOT EXISTS `branch_sub_map` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `branch_id` int(11) NOT NULL,
-  `sub_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `sub_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+
+--
+-- Dumping data for table `branch_sub_map`
+--
+
+INSERT INTO `branch_sub_map` (`id`, `branch_id`, `sub_id`) VALUES
+(19, 1, 8),
+(20, 9, 8);
 
 -- --------------------------------------------------------
 
@@ -83,10 +112,10 @@ CREATE TABLE IF NOT EXISTS `level` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `quest_web_tech`
+-- Table structure for table `quest_wt`
 --
 
-CREATE TABLE IF NOT EXISTS `quest_web_tech` (
+CREATE TABLE IF NOT EXISTS `quest_wt` (
   `quest_id` int(11) NOT NULL AUTO_INCREMENT,
   `topic_id` int(11) NOT NULL,
   `quest` text NOT NULL,
@@ -111,7 +140,14 @@ CREATE TABLE IF NOT EXISTS `subjects` (
   `sub_slug` varchar(255) NOT NULL,
   PRIMARY KEY (`sub_id`),
   UNIQUE KEY `sub_slug` (`sub_slug`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `subjects`
+--
+
+INSERT INTO `subjects` (`sub_id`, `sub_name`, `sub_slug`) VALUES
+(8, 'Web Technologies', 'wt');
 
 -- --------------------------------------------------------
 
@@ -120,9 +156,11 @@ CREATE TABLE IF NOT EXISTS `subjects` (
 --
 
 CREATE TABLE IF NOT EXISTS `sub_topic_map` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `sub_id` int(11) NOT NULL,
-  `topic_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `topic_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -183,3 +221,7 @@ CREATE TABLE IF NOT EXISTS `users_reg` (
 --
 ALTER TABLE `users_info`
   ADD CONSTRAINT `usr_reg_pid_to_user_info_pid` FOREIGN KEY (`profile_id`) REFERENCES `users_reg` (`profile_id`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
