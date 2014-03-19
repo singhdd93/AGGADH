@@ -28,7 +28,7 @@ require ("../includes/functions.php");?>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-        <a class="navbar-brand" href="../admin/adminindex.php"><img src="../img/logo-footer-menu.png" /></a>
+        <a class="navbar-brand" href="adminindex.php"><img src="../img/logo-footer-menu.png" /></a>
     </div>
 
     
@@ -39,15 +39,15 @@ require ("../includes/functions.php");?>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Branches <b class="caret"></b></a>
           <ul class="dropdown-menu">
-              <li><a href="../admin/branch-add.php">Add</a></li>
-            <li><a href="../admin/branch-list.php">List All</a></li>
+              <li><a href="branch-add.php">Add</a></li>
+            <li><a href="branch-list.php">List All</a></li>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="../admin/subject-add.php">Add</a></li>
-            <li><a href="../admin/subject-list.php">List All</a></li>
+            <li><a href="subject-add.php">Add</a></li>
+            <li><a href="subject-list.php">List All</a></li>
           </ul>
         </li>
         <li class="dropdown">
@@ -83,7 +83,7 @@ require ("../includes/functions.php");?>
         <li class="dropdown">
             <? if(isset($_SESSION['admin']))
             { ?>
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin User <b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?$a=adminName($_SESSION['admin']); echo $a; ?><b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="#">Profile</a></li>
             <li><a href="#">Other Admins</a></li>

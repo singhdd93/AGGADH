@@ -69,6 +69,26 @@ function adminLogin($username, $password)
                         
 }
 
+function adminName($a_id)
+{
+    global $conn;
+    $query = "SELECT a_name from admins WHERE `a_id`=? ;";
+                            $q = $conn->prepare($query);
+
+                            if ($q === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+
+                            $q->bind_param('i', $aid);
+                        $aid=$a_id;
+                        $q->execute();
+                        $q->bind_result($admin_name);
+                        $q->fetch();
+                        $q->close();                                            
+                        return $admin_name;
+                        
+}
+
 function addBranch($branchName, $branchSlug)
 {
     global $conn;
