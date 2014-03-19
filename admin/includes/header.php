@@ -3,12 +3,13 @@ if(!isset($_SESSION['admin']))
 {
     header("location:index.php");
 }
-require ("/Users/DDS/Websites/AGGADH/includes/functions.php");?>
+require ("../includes/functions.php");?>
 <html>
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css" />
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Boogaloo">
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         
         <title>AGGADH Admin</title>
@@ -39,11 +40,18 @@ require ("/Users/DDS/Websites/AGGADH/includes/functions.php");?>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Branches <b class="caret"></b></a>
           <ul class="dropdown-menu">
               <li><a href="../admin/branch-add.php">Add</a></li>
-            <li><a href="#">List All</a></li>
+            <li><a href="../admin/branch-list.php">List All</a></li>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="../admin/subject-add.php">Add</a></li>
+            <li><a href="../admin/subject-list.php">List All</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Topics <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="#">Add</a></li>
             <li><a href="#">List All</a></li>
@@ -54,7 +62,7 @@ require ("/Users/DDS/Websites/AGGADH/includes/functions.php");?>
           <ul class="dropdown-menu">
             <li><a href="#">Add</a></li>
             <li><a href="#">List All</a></li>
-            <li><a href="#">List All Subject Wise</a></li>
+            <li><a href="#">List All Topics Wise</a></li>
           </ul>
         </li>
         

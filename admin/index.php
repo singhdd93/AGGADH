@@ -31,6 +31,7 @@ if(isset($_POST['admin_login']))
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css" />
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Boogaloo">
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         
         <title>AGGADH Admin</title>
@@ -79,9 +80,15 @@ if(isset($_POST['admin_login']))
         
         <div class="row">
             <div class="container-fluid">
-                <div class="row">
+                
+                <div class="container-fluid">
+                    <div class="col-lg-12"><h1 class="mainheading"> AGGADH Admin Login</h1></div>
+                </div>
+                <div class="container-fluid">
                     <div class="alert alert-danger login-error"><h4> You have entered wrong Username/Password</h4><p>Please try again</p></div>
                 </div>
+                
+                <div class="container-fluid">
                 <div class="col-lg-4"></div>
             
                 <div class="col-lg-4">
@@ -93,6 +100,7 @@ if(isset($_POST['admin_login']))
                 </div>
                 
                 <div class="col-lg-4"></div>
+                </div>
             </div>
         </div>
 

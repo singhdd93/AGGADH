@@ -8,11 +8,30 @@ and open the template in the editor.
     Author     : DDS
 */
 
+h1,h2,h3,h4,h5,h6
+{
+   font-family: "Boogaloo" !important;
+	font-weight: normal !important;
+	color: #666;
+	margin: 0;
+	padding: 0;
+}
 .navbar-brand, .navbar-brand > img
 {
     margin: 0;
     padding: 0px 8px;
 }
+
+.mainheading
+{
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 48px;
+    padding: 12px 0px;
+    margin-top: 10px;
+}
+
+
 
 .login-form 
 {
@@ -72,4 +91,35 @@ and open the template in the editor.
     text-align: center;
    margin-top: 20px;
    width: 40%;
+}
+
+.branch-list
+{
+    width: 70%;
+    height: 400px;
+    overflow-y: auto;
+    border: 2px solid #e0e0e0;
+    box-shadow: 3px 3px #aaa,inset 3px 3px 12px 4px #eaeaea;
+}
+
+.branch-list ul, .branch-list ul li
+{
+    margin: 0;
+    padding: 0px;
+    
+}
+
+.branch-list ul li
+{
+    padding: 10px 12px;
+    display: block;
+    border-bottom: 1px solid #e3e3e3;
+    margin: 0px 5px;
+}
+
+.branch-list ul li label
+{
+    padding-left: 10px;
+    font-weight: normal;
+    font-size: 15px;
 }
