@@ -5,27 +5,7 @@ if(isset($_SESSION['admin']))
     header("location:adminindex.php");
 }
 ?>
-<?php
-if(isset($_POST['admin_login']))
-{
-    $username = $_POST['us_name'];
-    $password = md5($_POST['us_pass']);
-    $a_id = adminLogin($username, $password);
-    if($a_id > 0)
-    {
-        $_SESSION['admin'] = $a_id;
-        header("location:adminindex.php");
-    }
-    else
-    {?>
-<style type="text/css">
-    .login-error{
-        display: block;
-    }
-</style>
-   <? }
-}
-?>
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -90,7 +70,27 @@ if(isset($_POST['admin_login']))
                 
                 <div class="container-fluid">
                 <div class="col-lg-4"></div>
-            
+         <?php
+if(isset($_POST['admin_login']))
+{
+    $username = $_POST['us_name'];
+    $password = md5($_POST['us_pass']);
+    $a_id = adminLogin($username, $password);
+    if($a_id > 0)
+    {
+        $_SESSION['admin'] = $a_id;
+        header("location:adminindex.php");
+    }
+    else
+    {?>
+<style type="text/css">
+    .login-error{
+        display: block;
+    }
+</style>
+   <? }
+}
+?>   
                 <div class="col-lg-4">
             <form  class="login-form" action="" method="post">
                 <input class="form-control" type="text" name="us_name" placeholder="User Name" />
