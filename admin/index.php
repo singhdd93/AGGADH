@@ -1,5 +1,5 @@
 <?php session_start();
-require ("/Users/DDS/Websites/AGGADH/includes/functions.php");
+require ("../includes/functions.php");
 if(isset($_SESSION['admin']))
 {
     header("location:adminindex.php");
