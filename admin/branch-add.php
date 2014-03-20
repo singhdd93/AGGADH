@@ -1,6 +1,6 @@
 <?php include './includes/header.php';?>
-<div class="row">
-    <div class="container">
+
+    <div class="container-fluid">
         <h2>Add Branch</h2>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="add-form">
         <div class="container-fluid">
@@ -27,6 +27,5 @@ if(isset($_POST['branch']))
 }
 ?>
         </div>
-</div>
 
 <? include './includes/footer.php';?>

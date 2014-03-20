@@ -48,13 +48,15 @@ require ("../includes/functions.php");?>
           <ul class="dropdown-menu">
             <li><a href="subject-add.php">Add</a></li>
             <li><a href="subject-list.php">List All</a></li>
+            <li><a href="subject-list.php">List All Branch Wise</a></li>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Topics <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Add</a></li>
+            <li><a href="topics-add.php">Add</a></li>
             <li><a href="#">List All</a></li>
+            <li><a href="#">List All Subject Wise</a></li>
           </ul>
         </li>
         <li class="dropdown">

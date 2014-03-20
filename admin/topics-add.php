@@ -1,0 +1,25 @@
+<?php include './includes/header.php'; ?>
+<div class="container-fluid">
+    <div class="container-fluid">
+        <h2>Add Topic</h2>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="add-form">
+
+                <div class="container-fluid">
+                    <p class="col-lg-3">Topic Name</p> <p class="col-lg-1">:</p><input class=" form-control col-lg-8" name="sname" type="text" placeholder="Topic Name" />
+                </div>
+                <div class="container-fluid">
+                    <p class="col-lg-3">Topic Slug</p> <p class="col-lg-1">:</p><input class="form-control col-lg-8" name="sslug" type="text" placeholder="Topic Slug" />
+                </div>
+                <div class="container-fluid">
+                    <input class="btn btn-primary col-lg-6" name="topic" type="submit" value="Add Topic" />
+                </div>
+
+
+
+
+        </form>
+
+    </div>
+</div>
+
+<? include './includes/footer.php'; ?>

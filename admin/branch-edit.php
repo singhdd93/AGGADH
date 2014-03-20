@@ -2,8 +2,7 @@
 
 $row = getBranchInfo($_GET['id']);?>
 
-<div class="row">
-    <div class="container">
+    <div class="container-fluid">
         <h2>Edit Branch</h2>
         <form action="branch-edit.php?id=<? echo $_GET['id']; ?>" method="post" class="add-form">
         <div class="container-fluid">
@@ -30,6 +29,5 @@ if(isset($_POST['branch']))
 }
 ?>
         </div>
-</div>
 
 <? include './includes/footer.php';?>
