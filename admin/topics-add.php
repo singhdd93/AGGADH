@@ -12,7 +12,7 @@
             </div>
             <div class="container-fluid">
                 <p class="col-lg-3">Select Subject</p> <p class="col-lg-1">:</p>
-                <select  id="add_select" class="form-control col-lg-8"name="subjects" required="required">
+                <select  id="add_select" class="form-control col-lg-8" name="subjects" required="required">
                     <option value="" label="Subject" selected="selected">Subject</option>
                     <?
                     $arr = getSubjects();
