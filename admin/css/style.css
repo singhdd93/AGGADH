@@ -62,7 +62,7 @@ h1,h2,h3,h4,h5,h6
     display: none;
 }
 
-.add-form input[type="text"]
+.add-form input[type="text"], .add-form select
 {
     display: inline;
     width: 50%;  
@@ -73,12 +73,13 @@ h1,h2,h3,h4,h5,h6
     padding: 10px 0px;
 }
 
-.add-form input
+.add-form input, .add-form select
 {
     font-size: 18px;
     padding: 10px 10px;
     height: auto;
 }
+
 .add-form p
 {
     font-size: 18px;
