@@ -321,3 +321,12 @@ function deleteSubject($id)
                             $qs->close();                            
                             return $rows;
 }
+
+function getTopics()
+{
+    $getquery = "Select * from topics ;";
+    global $conn;
+                        $res = $conn->query($getquery);
+                     
+                     return $res;
+}
