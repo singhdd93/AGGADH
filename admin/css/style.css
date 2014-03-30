@@ -94,7 +94,7 @@ h1,h2,h3,h4,h5,h6
    width: 40%;
 }
 
-.branch-list
+.branch-list, .options-list
 {
     width: 70%;
     height: 400px;
@@ -103,14 +103,14 @@ h1,h2,h3,h4,h5,h6
     box-shadow: 3px 3px #aaa,inset 3px 3px 12px 4px #eaeaea;
 }
 
-.branch-list ul, .branch-list ul li
+.branch-list ul, .branch-list ul li, .options-list ul, .options-list ul li
 {
     margin: 0;
     padding: 0px;
     
 }
 
-.branch-list ul li
+.branch-list ul li, .options-list ul li
 {
     padding: 10px 12px;
     display: block;
@@ -118,9 +118,15 @@ h1,h2,h3,h4,h5,h6
     margin: 0px 5px;
 }
 
-.branch-list ul li label
+.branch-list ul li label, .options-list ul li label
 {
     padding-left: 10px;
     font-weight: normal;
     font-size: 15px;
+}
+
+.options-list
+{
+    width: 50%;
+    height: 200px;
 }
