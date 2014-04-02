@@ -330,3 +330,89 @@ function getTopics()
                      
                      return $res;
 }
+
+function addTopic($topicName, $topicSlug)
+{
+     global $conn;
+    $insquery = "INSERT INTO topics(`topic_name`,`topic_slug`) VALUES(?,?)";
+                            $qs = $conn->prepare($insquery);
+
+                            if ($qs === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+
+                            $qs->bind_param('ss', $bnn, $bns);
+                            $bnn = $topicName;
+                            $bns = $topicSlug;
+                            $qs->execute();
+                            $idd = $qs->insert_id;
+                            $qs->close();
+                            return $idd;
+}
+
+function mapTopicToSubjects($topic_id,$subject_id)
+{
+    global $conn;
+    $query = "INSERT INTO sub_topic_map VALUES (NULL,?,?)";
+    $q = $conn->prepare($query);
+
+                            if ($q === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+                            
+                            $q->bind_param("ii",$sid,$tid);
+                                                      
+                                $sid=$subject_id;
+                                $tid=$topic_id;
+                                $q->execute();
+                                $r = $q->affected_rows;
+                                
+                            $q->close();
+                            return $r;
+    
+}
+
+function getSubjectIdsForTopics($sub_id)
+{
+    $query = "Select sub_id FROM sub_topic_map WHERE `topic_id` = ?";
+     global $conn;
+     
+     $q = $conn->prepare($query);
+
+                            if ($q === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+                            
+                            $q->bind_param("i",$sid);
+                            $sid = $sub_id;
+                            $q->execute();
+                            $q->bind_result($topics);
+                            while($q->fetch())
+                            {
+                                $topics_id[] = $topics;
+                            }
+                            return $topics_id;
+}
+
+function getSubjectInfo($id)
+{
+    
+    global $conn;
+    $query = "SELECT sub_name, sub_slug from subjects WHERE `sub_id`=? ;";
+                            $q = $conn->prepare($query);
+
+                            if ($q === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+
+                            $q->bind_param('s', $bid);
+                        $bid = $id;
+                        $q->execute();
+                        $q->bind_result($b_name,$b_slug);
+                        $q->fetch();
+                        $q->close();                       
+                        $row[0] = $b_name;
+                        $row[1] = $b_slug;
+                        return $row;
+    
+}
