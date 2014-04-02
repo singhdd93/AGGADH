@@ -130,3 +130,8 @@ h1,h2,h3,h4,h5,h6
     width: 50%;
     height: 200px;
 }
+
+.head
+{
+    text-align: center;
+}
