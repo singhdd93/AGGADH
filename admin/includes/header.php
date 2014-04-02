@@ -55,7 +55,7 @@ require ("../includes/functions.php");?>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Topics <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="topics-add.php">Add</a></li>
-            <li><a href="#">List All</a></li>
+            <li><a href="topics-list.php">List All</a></li>
             <li><a href="#">List All Subject Wise</a></li>
           </ul>
         </li>

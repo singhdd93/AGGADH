@@ -33,6 +33,18 @@
 
         </form>
 
+        <?
+        if (isset($_POST['topic'])) {
+            $sName = $_POST['sname'];
+            $sSLug = $_POST['sslug'];
+            $subject_id = $_POST['subjects'];
+            $topic_id = addTopic($sName, $sSLug);
+            $rows = mapTopicToSubjects($topic_id, $subject_id);
+            echo "<p>"."Topic has been added to $rows Subject"."</p>";
+           
+        }
+        ?>
+        
     </div>
 </div>
 
