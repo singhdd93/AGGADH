@@ -2,8 +2,8 @@
 
 ?>
 <div class="row">
-    <div class="container-fluid">
-        <h1> Welcome Admin</h1>
+    <div class="container-fluid head">
+        <h1> Welcome <?echo $a;?></h1>
     </div>
 </div>
 
