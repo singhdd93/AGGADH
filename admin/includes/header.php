@@ -70,8 +70,7 @@ require ("../includes/functions.php");?>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Questions <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="questions-add.php">Add</a></li>
-            <li><a href="#">List All</a></li>
-            <li><a href="#">List All Topics Wise</a></li>
+            <li><a href="question-list.php">List Subject Wise</a></li>
           </ul>
         </li>
         

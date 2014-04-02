@@ -5,6 +5,20 @@
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="add-form">
 
             <div class="container-fluid">
+                <p class="col-lg-3">Select Level</p> <p class="col-lg-1">:</p>
+                <select  id="add_select" class="form-control col-lg-8" name="ques_level" required="required">
+                    <option value="" label="qlevel" selected="selected">Level</option>
+                    <?
+                    $arr = getLevels();
+
+                    while ($row = $arr->fetch_array()) {
+                        ?>
+                        <option value="<? echo $row['level_id']; ?>" label="<? echo $row['level_name'] ?>"><? echo $row['level_name'] ?></option>
+                    <? }
+                    ?>
+                </select>
+            </div>
+            <div class="container-fluid">
                 <p class="col-lg-3">Question</p> <p class="col-lg-1">:</p><input class="form-control col-lg-8" name="ques" type="text" placeholder="Write Question" />
             </div>
             <div class="container-fluid">
@@ -67,7 +81,29 @@
             <div class="container-fluid">
                 <input class="btn btn-primary col-lg-6" name="question" type="submit" value="Add Question" />
             </div>
-
+        <?
+        if (isset($_POST['question'])) {
+           $ques_level = $_POST['ques_level'];
+           $ques = $_POST['ques'];
+           $opt_a = $_POST['opt_a'];
+           $opt_b = $_POST['opt_b'];
+           $opt_c = $_POST['opt_c'];
+           $opt_d = $_POST['opt_d'];
+           $corr_opt = $_POST['corr_opt'];
+           $subjects = $_POST['subjects'];
+           $topics = $_POST['topics'];
+           
+           $sub = getSubjectInfo($subjects);
+           $sub_slug = $sub[1];
+           
+           $num = addQuestion($sub_slug, $ques, $opt_a, $opt_b, $opt_c, $opt_d, $corr_opt, $ques_level, $topics);
+           
+           if(isset($num))
+           {
+               echo "<p>$num questions inserted.</p>";
+           }
+        }
+        ?>
 
 
 

@@ -460,3 +460,29 @@ function deleteLevel($id)
                             $qs->close();                            
                             return $rows;
 }
+
+function addQuestion($sub_slug,$ques,$opt_a,$opt_b,$opt_c,$opt_d,$corr_opt,$ques_level,$topics)
+{
+    global $conn;
+    $insquery = "INSERT INTO quest_$sub_slug VALUES(NULL,?,?,?,?,?,?,?,?)";
+                            $qs = $conn->prepare($insquery);
+
+                            if ($qs === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+
+                            $qs->bind_param('issssssi',$tid,$q,$a,$b,$c,$d,$cc,$lid);
+                            $tid = $topics;
+                            $q = $ques;
+                            $a = $opt_a;
+                            $b = $opt_b;
+                            $c = $opt_c;
+                            $d = $opt_d;
+                            $cc = $corr_opt;
+                            $lid = $ques_level;
+                            $qs->execute();
+                            $rows = $qs->affected_rows;
+                            $qs->close();
+                            
+                            return $rows;
+}
