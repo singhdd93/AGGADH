@@ -416,3 +416,47 @@ function getSubjectInfo($id)
                         return $row;
     
 }
+
+function addLevel($levelName)
+{
+    global $conn;
+    $insquery = "INSERT INTO level(`level_name`) VALUES(?)";
+                            $qs = $conn->prepare($insquery);
+
+                            if ($qs === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+
+                            $qs->bind_param('s', $lnn);
+                            $lnn = $levelName;
+                            $qs->execute();
+                            $rows = $qs->affected_rows;
+                            $qs->close();
+                            
+                            return $rows;
+}
+
+function getLevels()
+{
+    $getquery = "Select * from level ;";
+    global $conn;
+                        $res = $conn->query($getquery);
+                     
+                     return $res;
+}
+
+function deleteLevel($id)
+{
+    global $conn;
+    $insquery = "DELETE FROM level WHERE `level_id` = ?";
+                            $qs = $conn->prepare($insquery);
+                            if ($qs === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+                            $qs->bind_param('i', $bid);                            
+                            $bid = $id;
+                            $qs->execute();
+                            $rows = $qs->affected_rows;
+                            $qs->close();                            
+                            return $rows;
+}
