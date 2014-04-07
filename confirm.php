@@ -46,13 +46,13 @@
                            
 
                             $rows = regNewUser($em, $psd);
-                            
+                            $cc = md5($em);
                             if ($rows == 1) {
                                 $subject = 'Confirm your Email Address';
                                 $message = "Dear User"
                                         . " \n Please Click on the link below to confirm your "
                                         . " E-mail Address \n "
-                                        . "http://learning.singhdd.com/econfirm.php?email=$em&code=$cc"
+                                        . "http://singhdd.com/aggadh/econfirm.php?email=$em&code=$cc"
                                         . "\n If you are unable to open link directly please copy and "
                                         . "paste the link in your browser. \n Thanks";
 

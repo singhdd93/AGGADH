@@ -1,4 +1,4 @@
-<!-- start: Footer Menu -->
+<?php ob_end_flush();?><!-- start: Footer Menu -->
         <div id="footer-menu" class="hidden-tablet hidden-phone">
 
             <!-- start: Container -->

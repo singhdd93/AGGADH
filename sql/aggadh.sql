@@ -19,9 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `aggadh`
 --
-CREATE DATABASE IF NOT EXISTS `aggadh` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `aggadh`;
-
 -- --------------------------------------------------------
 
 --

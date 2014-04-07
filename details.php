@@ -1,14 +1,37 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-        
+<?php include './header.php'; ?>
+
+
+<div id="page-title">
+
+		<div id="page-title-inner">
+
+			<!-- start: Container -->
+			<div class="container">
+
+				<h2><i class="ico-adress-book ico-white"></i>Details</h2>
+
+			</div>
+			<!-- end: Container  -->
+
+		</div>	
+
+	</div>
+
+
+<div id="wrapper">
+				
+		<!--start: Container -->
+    	<div class="container">
+	
+			<!--start: Row -->
+	    	<div class="row">
+		
+				<div class="span12">
+					
+					
+					<div id="signup">
+						<div class="title"><h3>Please Enter Your Details</h3></div>
+	<!-- end: Page Title -->
         <?
         if (!isset($_GET['pro'])) {
             header("location:index.html");
@@ -18,14 +41,16 @@ and open the template in the editor.
             $a=$_GET['pro'];
         }
         ?>
-    </head>
-    <body>
+
         <? if($_GET['h'] == 0)
         {
             ?>
-            
+        <div class="details-form">
         <form method="post" action="details.php?pro=<?echo $a; ?>&h=1">
+            <div class="input">
             <input type="text" name="usersname" placeholder="Name" />
+            </div>
+            <div class="input">
             <select required="required" name="dobd" >
                 <option value="" label="Day" selected="selected">Day</option>
                 <option value="01" label="01">01</option>
@@ -60,6 +85,7 @@ and open the template in the editor.
                 <option value="30" label="30">30</option>
                 <option value="31" label="31">31</option>
             </select>
+                
             <select required="required" name="dobm">
                 <option value="" label="Month" selected="selected">Month</option>
                 <option value="01" label="Jan">Jan</option>
@@ -95,22 +121,30 @@ and open the template in the editor.
                 <option value="1981" label="1981">1981</option>
                 <option value="1980" label="1980">1980</option>
             </select>
+            </div>
+            <div class="input">
             <input type="number" name="contactno" placeholder="Mobile No" />
+            </div>
+            <div class="input">
             <select required="required" name="sex" >
                 <option value="" label="Sex" selected="selected">Sex</option>
                 <option value="m" label="Male">Male</option>
                 <option value="f" label="Female">Female</option>
             </select>
+            </div>
             <!-- Live Validation to be implemented using JavaScript -->
+            <div class="input">
             <input type="text" name="user_name" placeholder="User Name" onblur="" />
+            </div>
+            <div class="actions">
             <input type="submit" name="sub" value="Submit" />
+            </div>
         </form>
+        </div>
         <?
         }
         ?>
         <?php
-        // put your code here
-        include 'includes/db.php';
         if (isset($_POST['sub'])) {
             $dobd = $_POST['dobd'];
             $dobm = $_POST['dobm'];
@@ -137,5 +171,12 @@ and open the template in the editor.
            
         }
         ?>
-    </body>
-</html>
+        
+                                        </div>
+                                </div>
+                </div>
+        </div>
+</div>
+   
+
+<?php include './footer.php'; ?>
