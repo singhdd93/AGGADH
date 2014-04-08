@@ -62,7 +62,7 @@ h1,h2,h3,h4,h5,h6
     display: none;
 }
 
-.add-form input[type="text"], .add-form select
+.add-form input[type="text"], .add-form select, .add-form input[type="date"], .add-form input[type="number"]
 {
     display: inline;
     width: 50%;  
@@ -131,6 +131,10 @@ h1,h2,h3,h4,h5,h6
     height: 200px;
 }
 
+.y
+{
+    height: 100px;
+}
 .head
 {
     text-align: center;
