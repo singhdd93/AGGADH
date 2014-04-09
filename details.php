@@ -34,7 +34,7 @@
 	<!-- end: Page Title -->
         <?
         if (!isset($_GET['pro'])) {
-            header("location:index.html");
+            header("location:index.php");
         }
         else
         {
@@ -136,6 +136,17 @@
             <div class="input">
             <input type="text" name="user_name" placeholder="User Name" onblur="" />
             </div>
+            <div class="input">
+                <select required="required" name="branch" >
+                <option value="" label="Branch" selected="selected">Branch</option>
+                    <?php $arr = getBranches();
+                        while($row = $arr->fetch_array())
+                        {?>
+                <option value="<? echo $row['branch_id']; ?>" ><? echo $row['branch_name'];?></option>
+                        
+                        <?}?>
+            </select>
+            </div>
             <div class="actions">
             <input type="submit" name="sub" value="Submit" />
             </div>
@@ -150,16 +161,17 @@
             $dobm = $_POST['dobm'];
             $doby = $_POST['doby'];
 
-            $insq = "INSERT into users_info VALUES(?, ?, ?, ?, ?, ?)";
+            $insq = "INSERT into users_info VALUES(?, ?, ?, ?, ?, ?, ?)";
             $qd=$conn->prepare($insq);
             
-            $qd->bind_param('ssisis', $name, $dob, $contact, $sex, $prof, $us_name);
+            $qd->bind_param('ssisisi', $name, $dob, $contact, $sex, $prof, $us_name,$bid);
             $name = $_POST['usersname'];
             $dob = "$doby-$dobm-$dobd";
             $contact = $_POST['contactno'];
             $sex = $_POST['sex'];
             $prof = $_GET['pro'];
             $us_name = $_POST['user_name'];
+            $bid = $_POST['branch'];
             $qd->execute();
             $rows = $qd->affected_rows;
             if ($rows == 1) {

@@ -97,6 +97,7 @@
         <script src="js/jquery.cslider.js"></script>
         <script src="js/slider.js"></script>
         <script defer="defer" src="js/custom.js"></script>
+        <script src="js/menu_jquery.js"></script>
         
 <!--        <script type="text/javascript">
         $(document).ready(function () {
