@@ -4,11 +4,11 @@ AGGADH
 This project is an E-Learning software following the concepts of subjects: 
 Software Engineering, RDBMS and Web Technologies.
 
+Project Developers:
+__Damandeep Singh
+__Gurjot Singh
+__Gurwinder Singh Bains
+
 Project Contributors:
-Aman Kumar Labra
-Aseem Mittal
-Damandeep Singh
-Gurjot Singh
-Gurwinder Singh Bains
-Haramritpal Singh Panesar
+__Haramritpal Singh Panesar
 
