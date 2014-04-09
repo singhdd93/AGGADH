@@ -93,7 +93,7 @@ require ("../includes/functions.php");?>
             { ?>
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?$a=adminName($_SESSION['admin']); echo $a; ?><b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="profile-add.php">Profile</a></li>
+            <li><a href="#">Profile</a></li>
             <li><a href="#">Other Admins</a></li>
             <li class="divider"></li>
             <li><a href="../admin/logout.php">Logout</a></li>

@@ -461,22 +461,25 @@ function deleteLevel($id)
                             return $rows;
 }
 
-function addProfile($fname, $dob, $cnum, $sex, $uname)
+function addQuestion($sub_slug,$ques,$opt_a,$opt_b,$opt_c,$opt_d,$corr_opt,$ques_level,$topics)
 {
     global $conn;
-    $insquery = "INSERT INTO users_info(`name`,`dob`,`contact_no`,`sex`,`user_name`) VALUES(?,?,?,?,?)";
+    $insquery = "INSERT INTO quest_$sub_slug VALUES(NULL,?,?,?,?,?,?,?,?)";
                             $qs = $conn->prepare($insquery);
 
                             if ($qs === FALSE) {
                                 trigger_error('Error: ' . $conn->error, E_USER_ERROR);
                             }
 
-                            $qs->bind_param('ssiss',$fn,$d,$c,$s,$u);
-                            $fn = $fname;
-                            $d = $dob;
-                            $c = $cnum;
-                            $s = $sex;
-                            $u = $uname;
+                            $qs->bind_param('issssssi',$tid,$q,$a,$b,$c,$d,$cc,$lid);
+                            $tid = $topics;
+                            $q = $ques;
+                            $a = $opt_a;
+                            $b = $opt_b;
+                            $c = $opt_c;
+                            $d = $opt_d;
+                            $cc = $corr_opt;
+                            $lid = $ques_level;
                             $qs->execute();
                             $rows = $qs->affected_rows;
                             $qs->close();
