@@ -1,8 +1,12 @@
 <?php include './includes/header.php'; ?>
+
+
+
+
 <div class="container-fluid">
     <div class="container-fluid">
         <h2>Add Question</h2>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="add-form">
+        <form id="addquestionform" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="add-form">
 
             <div class="container-fluid">
                 <p class="col-lg-3">Select Level</p> <p class="col-lg-1">:</p>
@@ -51,7 +55,7 @@
             
             <div class="container-fluid">
                 <p class="col-lg-3">Select Subject</p> <p class="col-lg-1">:</p>
-                <select  id="add_select" class="form-control col-lg-8" name="subjects" required="required">
+                <select  id='addselect' class="form-control col-lg-8" name="subjects" required="required">
                     <option value="" label="Subject" selected="selected">Subject</option>
                     <?
                     $arr = getSubjects();
@@ -66,21 +70,17 @@
             
             <div class="container-fluid">
                 <p class="col-lg-3">Select Topic</p> <p class="col-lg-1">:</p>
-                <select  id="add_tselect" class="form-control col-lg-8" name="topics" required="required">
-                    <option value="" label="Topic" selected="selected">Topic</option>
-                    <?
-                    $arr = getTopics();
-
-                    while ($row = $arr->fetch_array()) {
-                        ?>
-                        <option value="<? echo $row['topic_id']; ?>" label="<? echo $row['topic_name'] ?>"><? echo $row['topic_name'] ?></option>
-                    <? }
-                    ?>
+                <select  id='addtselect' class="form-control col-lg-8" name="topics" required="required">
+                    <option value="" label="Topics" selected="selected">Topics</option>
+                    
+                    
                 </select>
             </div>
             <div class="container-fluid">
                 <input class="btn btn-primary col-lg-6" name="question" type="submit" value="Add Question" />
             </div>
+            
+             </form>
         <?
         if (isset($_POST['question'])) {
            $ques_level = $_POST['ques_level'];
@@ -107,9 +107,32 @@
 
 
 
-        </form>
+       
 
     </div>
 </div>
 
 <? include './includes/footer.php'; ?>
+<script type='text/javascript'>
+$(document).ready(function(){
+ 
+ 
+$("#addselect").change(function(){
+ 
+ var data = $("#addquestionform").serialize();
+   $.ajax({
+ 
+       url  : 'getTopics.php',
+       type : 'POST',
+       data : data,
+       success:function(data){
+                $('#addtselect').html(data)
+               }
+    })
+ 
+ 
+   });
+ 
+});
+ 
+</script>

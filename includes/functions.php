@@ -486,3 +486,17 @@ function addQuestion($sub_slug,$ques,$opt_a,$opt_b,$opt_c,$opt_d,$corr_opt,$ques
                             
                             return $rows;
 }
+
+
+
+function getTopicForSubject($sub_id)
+{
+     global $conn;
+     
+     $getquery = "Select * from topics WHERE topic_id IN (Select topic_id FROM sub_topic_map WHERE sub_id = '$sub_id');";
+                        $res = $conn->query($getquery);
+                    
+                     return $res;                                                                       
+}
+
+

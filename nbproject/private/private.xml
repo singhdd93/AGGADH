@@ -4,18 +4,23 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Users/DDS/Websites/AGGADH/footer.php</file>
-            <file>file:/Users/DDS/Websites/AGGADH/includes/functions.php</file>
             <file>file:/Users/DDS/Websites/AGGADH/confirm.php</file>
-            <file>file:/Users/DDS/Websites/AGGADH/profile.php</file>
-            <file>file:/Users/DDS/Websites/AGGADH/logincheck.php</file>
-            <file>file:/Users/DDS/Websites/AGGADH/signup.php</file>
+            <file>file:/Users/DDS/Websites/AGGADH/includes/functions.php</file>
             <file>file:/Users/DDS/Websites/AGGADH/login.php</file>
-            <file>file:/Users/DDS/Websites/AGGADH/admin/index.php</file>
-            <file>file:/Users/DDS/Websites/AGGADH/css/style.css</file>
+            <file>file:/Users/DDS/Websites/AGGADH/css/bootstrap.css</file>
             <file>file:/Users/DDS/Websites/AGGADH/header.php</file>
-            <file>file:/Users/DDS/Websites/AGGADH/about.php</file>
+            <file>file:/Users/DDS/Websites/AGGADH/css/style.css</file>
             <file>file:/Users/DDS/Websites/AGGADH/econfirm.php</file>
+            <file>file:/Users/DDS/Websites/AGGADH/css/parallax-slider.css</file>
             <file>file:/Users/DDS/Websites/AGGADH/details.php</file>
+            <file>file:/Users/DDS/Websites/AGGADH/css/social-icons.css</file>
+            <file>file:/Users/DDS/Websites/AGGADH/css/icons.css</file>
+            <file>file:/Users/DDS/Websites/AGGADH/css/bootstrap-responsive.css</file>
+            <file>file:/Users/DDS/Websites/AGGADH/logincheck.php</file>
+            <file>file:/Users/DDS/Websites/AGGADH/profile.php</file>
+            <file>file:/Users/DDS/Websites/AGGADH/signup.php</file>
+            <file>file:/Users/DDS/Websites/AGGADH/admin/index.php</file>
+            <file>file:/Users/DDS/Websites/AGGADH/about.php</file>
         </group>
     </open-files>
 </project-private>
