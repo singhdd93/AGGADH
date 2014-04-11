@@ -500,3 +500,59 @@ function getTopicForSubject($sub_id)
 }
 
 
+function getTopicInfo($id)
+{
+    
+    global $conn;
+    $query = "SELECT topic_name, topic_slug from topics WHERE `topic_id`=? ;";
+                            $q = $conn->prepare($query);
+
+                            if ($q === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+
+                            $q->bind_param('i', $bid);
+                        $bid = $id;
+                        $q->execute();
+                        $q->bind_result($b_name,$b_slug);
+                        $q->fetch();
+                        $q->close();                       
+                        $row[0] = $b_name;
+                        $row[1] = $b_slug;
+                        return $row;
+    
+}
+
+function getLevelInfo($id)
+{
+    
+    global $conn;
+    $query = "SELECT level_name from level WHERE `level_id`=? ;";
+                            $q = $conn->prepare($query);
+
+                            if ($q === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+
+                            $q->bind_param('i', $bid);
+                        $bid = $id;
+                        $q->execute();
+                        $q->bind_result($b_name);
+                        $q->fetch();
+                        $q->close();                       
+                        return  $b_name;   
+}
+
+
+function getQuestions($sub_slug)
+{
+    
+    $getquery = "Select * from quest_$sub_slug ;";
+    global $conn;
+                        $res = $conn->query($getquery);
+                     
+                     return $res;
+    
+}
+
+
