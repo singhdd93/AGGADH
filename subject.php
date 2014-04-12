@@ -3,6 +3,7 @@ if(!isset($_SESSION['user'])){
         header("location:index.php");}
         
         $sid= $_GET['subid'];
+        $sub_slug=$_GET['sub'];
         if(!(isset($_GET['sub']) && isset($_GET['subid'])))
             {
             header("location:profile.php");
@@ -66,7 +67,7 @@ if(!isset($_SESSION['user'])){
                 <td><span><? echo $row['topic_name'];?></span></td>
                 <td><span><? echo $testinfo['attempts']?></span></td>
                 <td><span><? echo $testinfo['marks']?>%</span></td>
-                <td><a href="test.php?" class="btn btn-danger">Take Test</a></td>
+                <td><a href="test.php?sub-slug=<? echo $sub_slug;?>&topic=<? echo $row['topic_id']; ?>&level=<? echo $level; ?>" class="btn btn-danger">Take Test</a></td>
             </tr>
                    <?}
                    ?>

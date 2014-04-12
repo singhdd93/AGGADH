@@ -578,6 +578,17 @@ function getQuestions($sub_slug)
 }
 
 
+function getQuestionsOfTopicAndLevel($sub_slug,$topic_id,$level_id)
+{
+    
+    $getquery = "Select * from quest_$sub_slug WHERE `topic_id` = '$topic_id' AND `level_id` = '$level_id';";
+    global $conn;
+                        $res = $conn->query($getquery);
+                     
+                     return $res;
+    
+}
+
 function getUserInfo($profile_id)
 {
     
