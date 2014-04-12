@@ -97,7 +97,7 @@ ob_start();?><!DOCTYPE html>
                                         <li class="<?=echoActiveClassIfRequestMatches("about")?>"><a href="about.php">About</a></li>
                                         <li class="<?=echoActiveClassIfRequestMatches("services")?>"><a href="">Services</a></li>
                                         <li class="<?=echoActiveClassIfRequestMatches("contact")?>"><a href="">Contact</a></li>
-                                        <li class="<?=echoActiveClassIfRequestMatches("signup")?>"><a href="signup.php">Sign Up</a></li>
+                                        <? if(!isset($_SESSION['user'])) {?> <li class="<?=echoActiveClassIfRequestMatches("signup")?>"><a href="signup.php">Sign Up</a></li> <? } ?>
                                         <? if(!isset($_SESSION['user']))
                                         {?>
                                         <li class="dropdown ">
@@ -126,6 +126,24 @@ ob_start();?><!DOCTYPE html>
                                             </ul>
                                                     </form>
                                                  </div>
+                                        </li>
+                                        <? }
+                                        ?>
+                                        
+                                        <? if(isset($_SESSION['user']))
+                                        {
+                                            $info=  getUserInfo($_SESSION['user']);?>
+                                        <li class="dropdown <?=echoActiveClassIfRequestMatches("profile")?>">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><? echo $info['name'] ?> <b class="caret"></b></a>
+
+                                            
+                                            <ul class="dropdown-menu">                                 
+                                                        <li>
+                                                            <a href="profile.php">My Profile</a>
+                                                        </li>
+                                                        <li class="divider"></li>
+                                                        <li><a href="logout.php">Logout</a></li>                                                                 
+                                            </ul>                                                 
                                         </li>
                                         <? }
                                         ?>

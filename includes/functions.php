@@ -556,3 +556,32 @@ function getQuestions($sub_slug)
 }
 
 
+function getUserInfo($profile_id)
+{
+    
+    $query = "Select name,dob,contact_no,sex,user_name,branch_id from users_info WHERE `profile_id`=? ;";
+    global $conn;
+                        $q = $conn->prepare($query);
+
+                            if ($q === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+
+                            $q->bind_param('i', $pid);
+                        $pid = $profile_id;
+                        $q->execute();
+                        $q->bind_result($name,$dob,$cno,$sex,$uname,$branchid);
+                        $q->fetch();
+                        $q->close();
+                        $userInfo['name']=$name;
+                        $userInfo['dob']=$dob;
+                        $userInfo['contact_no']=$cno;
+                        $userInfo['sex']=$sex;
+                        $userInfo['user_name']=$uname;
+                        $userInfo['branch_id']=$branchid;
+                        
+                        return $userInfo;
+    
+}
+
+
