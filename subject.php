@@ -81,21 +81,31 @@ if(!isset($_SESSION['user'])){
 <? include './footer.php'; ?>
 
 <script type="text/javascript">
-    Morris.Bar({
-  element: 'bar-example',
-  data: [
-    { y: '2006', a: 100 },
-    { y: '2007', a: 75 },
-    { y: '2008', a: 50 },
-    { y: '2009', a: 75 },
-    { y: '2010', a: 50 },
-    { y: '2011', a: 75 },
-    { y: '2012', a: 100 }
-  ],
-  xkey: 'y',
-  ykeys: ['a'],
-  labels: ['Series A']
+    $(document).ready(function(){
+ 
+ 
+ var data="sub=<? echo $sub_slug; ?>&subid=<? echo $sid; ?>&un=<? echo $info['user_name']; ?>";
+   $.ajax({
+ 
+       url: "data.php",
+    cache: false,
+    type: "POST",
+    data: data,
+    dataType: "json",
+    timeout:3000,
+    success : function (data) {
+                Morris.Bar({
+                element: 'bar-example',
+                data: data,
+                xkey: 'topic_name',
+                ykeys: ['marks'],
+                labels: ['Marks']
+              });
+               }
+    }) 
 });
+    
+    
 
 Morris.Donut({
   element: 'donut-example',
