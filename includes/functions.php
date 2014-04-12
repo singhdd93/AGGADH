@@ -227,11 +227,19 @@ function addUserTable($uname){
   `topic_id` int(11) NOT NULL,
   `marks` int(11) NOT NULL,
   `attempts` int(11) NOT NULL,
+  `level` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `topic_id` (`topic_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1";
+  KEY `topic_id` (`topic_id`,`level`),
+  KEY `level` (`level`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;";
     
     $q = $conn->query($query); 
+    
+    $query2="ALTER TABLE `user_$uname`
+  ADD CONSTRAINT `user_'$uname'_ibfk_2` FOREIGN KEY (`level`) REFERENCES `level` (`level_id`),
+  ADD CONSTRAINT `user_'$uname'_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `topics` (`topic_id`);";
+    
+    $qs = $conn->query($query2); 
 }
 
 function delSubjectsTable($subSlug)
@@ -619,6 +627,48 @@ function getSubjectIdsForBranch($b_id)
                                 $subjects[] = $subs;
                             }
                             return $subjects;
+}
+
+
+function getUserTestInfo($uname,$topic_id)
+{
+    $query = "Select marks,attempts,level FROM `user_$uname` WHERE `topic_id` = ?";
+     global $conn;
+     
+     $q = $conn->prepare($query);
+
+                            if ($q === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+                            
+                            $q->bind_param("i",$sid);
+                            $sid = $topic_id;
+                            $q->execute();
+                            $q->bind_result($marks,$attempts,$level);
+                            $info['marks']=$marks;
+                            $info['attempts'] = $attempts;
+                            $info['level'] = $level;
+                            $q->close();
+                            return $info;
+}
+
+function getUserLevel($uname,$sub_id)
+{
+     $query = "Select max(level) FROM `user_$uname` WHERE `topic_id` IN (Select topic_id FROM sub_topic_map WHERE `sub_id` = ?)";
+     global $conn;
+     
+     $q = $conn->prepare($query);
+
+                            if ($q === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+                            
+                            $q->bind_param("i",$sid);
+                            $sid = $sub_id;
+                            $q->execute();
+                            $q->bind_result($level);                          
+                            $q->close();
+                            return $level;
 }
 
 

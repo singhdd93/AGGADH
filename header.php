@@ -133,7 +133,7 @@ ob_start();?><!DOCTYPE html>
                                         <? if(isset($_SESSION['user']))
                                         {
                                             $info=  getUserInfo($_SESSION['user']);?>
-                                        <li class="dropdown <?=echoActiveClassIfRequestMatches("profile")?>">
+                                        <li class="dropdown <?=echoActiveClassIfRequestMatches("profile")?><?=echoActiveClassIfRequestMatches("subject")?>">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><? echo $info['name'] ?> <b class="caret"></b></a>
 
                                             

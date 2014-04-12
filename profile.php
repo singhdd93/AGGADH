@@ -30,7 +30,7 @@ if(!isset($_SESSION['user'])){
 
     <div class="row-fluid">    
         <div class="span3"></div>
-        <div class="span6">
+        <div class="span6" id="testbutton">
             <div id='cssmenu'>
                 <ul>
                     <li class='has-sub'><a href='#'><span>Take a test</span></a>
@@ -39,7 +39,7 @@ if(!isset($_SESSION['user'])){
  foreach ($subs as $s)
  {
      $subjecttt = getSubjectInfo($s);?>
-                            <li><a href="subject.php?sub=<?echo $subjecttt[1]; ?>"><?  echo $subjecttt[0];?></a></li>
+                            <li><a href="subject.php?sub=<?echo $subjecttt[1]; ?>&subid=<? echo $s; ?>"><?  echo $subjecttt[0];?></a></li>
  <?}
                                     ?>
                         </ul>
