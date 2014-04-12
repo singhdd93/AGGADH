@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Apr 12, 2014 at 12:13 PM
+-- Generation Time: Apr 12, 2014 at 06:39 PM
 -- Server version: 5.5.34
 -- PHP Version: 5.4.25
 
@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `admins`
 --
 
-CREATE TABLE `admins` (
+CREATE TABLE IF NOT EXISTS `admins` (
   `a_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `a_username` varchar(255) NOT NULL,
   `a_password` text NOT NULL,
@@ -49,7 +49,7 @@ INSERT INTO `admins` (`a_id`, `a_username`, `a_password`, `a_name`, `a_dob`, `a_
 -- Table structure for table `branches`
 --
 
-CREATE TABLE `branches` (
+CREATE TABLE IF NOT EXISTS `branches` (
   `branch_id` int(11) NOT NULL AUTO_INCREMENT,
   `branch_name` varchar(255) NOT NULL,
   `bn_slug` varchar(255) NOT NULL,
@@ -76,7 +76,7 @@ INSERT INTO `branches` (`branch_id`, `branch_name`, `bn_slug`) VALUES
 -- Table structure for table `branch_sub_map`
 --
 
-CREATE TABLE `branch_sub_map` (
+CREATE TABLE IF NOT EXISTS `branch_sub_map` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `branch_id` int(11) NOT NULL,
   `sub_id` int(11) NOT NULL,
@@ -99,7 +99,7 @@ INSERT INTO `branch_sub_map` (`id`, `branch_id`, `sub_id`) VALUES
 -- Table structure for table `level`
 --
 
-CREATE TABLE `level` (
+CREATE TABLE IF NOT EXISTS `level` (
   `level_id` int(11) NOT NULL AUTO_INCREMENT,
   `level_name` varchar(255) NOT NULL,
   PRIMARY KEY (`level_id`)
@@ -120,7 +120,7 @@ INSERT INTO `level` (`level_id`, `level_name`) VALUES
 -- Table structure for table `quest_se`
 --
 
-CREATE TABLE `quest_se` (
+CREATE TABLE IF NOT EXISTS `quest_se` (
   `quest_id` int(11) NOT NULL AUTO_INCREMENT,
   `topic_id` int(11) NOT NULL,
   `quest` text NOT NULL,
@@ -160,7 +160,7 @@ INSERT INTO `quest_se` (`quest_id`, `topic_id`, `quest`, `op_a`, `op_b`, `op_c`,
 -- Table structure for table `quest_wt`
 --
 
-CREATE TABLE `quest_wt` (
+CREATE TABLE IF NOT EXISTS `quest_wt` (
   `quest_id` int(11) NOT NULL AUTO_INCREMENT,
   `topic_id` int(11) NOT NULL,
   `quest` text NOT NULL,
@@ -203,7 +203,7 @@ INSERT INTO `quest_wt` (`quest_id`, `topic_id`, `quest`, `op_a`, `op_b`, `op_c`,
 -- Table structure for table `subjects`
 --
 
-CREATE TABLE `subjects` (
+CREATE TABLE IF NOT EXISTS `subjects` (
   `sub_id` int(11) NOT NULL AUTO_INCREMENT,
   `sub_name` varchar(255) NOT NULL,
   `sub_slug` varchar(255) NOT NULL,
@@ -225,7 +225,7 @@ INSERT INTO `subjects` (`sub_id`, `sub_name`, `sub_slug`) VALUES
 -- Table structure for table `sub_topic_map`
 --
 
-CREATE TABLE `sub_topic_map` (
+CREATE TABLE IF NOT EXISTS `sub_topic_map` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sub_id` int(11) NOT NULL,
   `topic_id` int(11) NOT NULL,
@@ -247,7 +247,7 @@ INSERT INTO `sub_topic_map` (`id`, `sub_id`, `topic_id`) VALUES
 -- Table structure for table `topics`
 --
 
-CREATE TABLE `topics` (
+CREATE TABLE IF NOT EXISTS `topics` (
   `topic_id` int(11) NOT NULL AUTO_INCREMENT,
   `topic_name` varchar(255) NOT NULL,
   `topic_slug` varchar(255) NOT NULL,
@@ -270,7 +270,7 @@ INSERT INTO `topics` (`topic_id`, `topic_name`, `topic_slug`) VALUES
 -- Table structure for table `users_info`
 --
 
-CREATE TABLE `users_info` (
+CREATE TABLE IF NOT EXISTS `users_info` (
   `name` text NOT NULL,
   `dob` date NOT NULL,
   `contact_no` char(13) NOT NULL,
@@ -297,7 +297,7 @@ INSERT INTO `users_info` (`name`, `dob`, `contact_no`, `sex`, `profile_id`, `use
 -- Table structure for table `users_reg`
 --
 
-CREATE TABLE `users_reg` (
+CREATE TABLE IF NOT EXISTS `users_reg` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
   `password` text NOT NULL,
@@ -319,6 +319,23 @@ INSERT INTO `users_reg` (`id`, `email`, `password`, `profile_id`, `confirm_code`
 (2, 'singh_dd93@yahoo.in', 'b2fa99bb18eb36b582132835d6cd50d3f63bc51ab05001137e52b2701b637a5e1521ca7f', 89237736, 'confirmed', 1, '2014-04-07 13:17:27'),
 (3, 'bhattigurjot@gmail.com', '3f5acec98bd2deee8fe9c0ee359210756bfdff946c7ceff909a9e5b9843d6fd5babd620e', 55679487, 'confirmed', 1, '2014-04-08 02:18:56');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_singhdd`
+--
+
+CREATE TABLE IF NOT EXISTS `user_singhdd` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `topic_id` int(11) NOT NULL,
+  `marks` int(11) NOT NULL,
+  `attempts` int(11) NOT NULL,
+  `level` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `topic_id` (`topic_id`,`level`),
+  KEY `level` (`level`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
 --
 -- Constraints for dumped tables
 --
@@ -329,3 +346,10 @@ INSERT INTO `users_reg` (`id`, `email`, `password`, `profile_id`, `confirm_code`
 ALTER TABLE `users_info`
   ADD CONSTRAINT `users_info_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`branch_id`),
   ADD CONSTRAINT `usr_reg_pid_to_user_info_pid` FOREIGN KEY (`profile_id`) REFERENCES `users_reg` (`profile_id`);
+
+--
+-- Constraints for table `user_singhdd`
+--
+ALTER TABLE `user_singhdd`
+  ADD CONSTRAINT `user_singhdd_ibfk_2` FOREIGN KEY (`level`) REFERENCES `level` (`level_id`),
+  ADD CONSTRAINT `user_singhdd_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `topics` (`topic_id`);
