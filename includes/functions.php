@@ -220,6 +220,20 @@ function addSubjectsTable($subSlug)
     $q = $conn->query($query); 
 }
 
+function addUserTable($uname){
+    global $conn;
+    $query = "CREATE TABLE IF NOT EXISTS `user_$uname` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `topic_id` int(11) NOT NULL,
+  `marks` int(11) NOT NULL,
+  `attempts` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `topic_id` (`topic_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1";
+    
+    $q = $conn->query($query); 
+}
+
 function delSubjectsTable($subSlug)
 {
     global $conn;
