@@ -97,10 +97,9 @@
         <script src="js/jquery.cslider.js"></script>
         <script src="js/slider.js"></script>
         <script defer="defer" src="js/custom.js"></script>
-        <script src="js/menu_jquery.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
         <script src="http://cdn.oesmith.co.uk/morris-0.4.1.min.js"></script>
-        
+       
 <!--        <script type="text/javascript">
         $(document).ready(function () {
     $('.nav li a').click(function(e) {

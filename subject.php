@@ -19,11 +19,9 @@ if(!isset($_SESSION['user'])){
     <div class="row-fluid">    
 
         <div class="span6">
-          <div id="donut-example"></div> 
         </div>
 
         <div class="span6">
-            <div id="bar-example"></div>
         </div>
 
     </div>
@@ -54,33 +52,3 @@ if(!isset($_SESSION['user'])){
 </div>
 
 <? include './footer.php'; ?>
-
-<script type="text/javascript">
-    Morris.Bar({
-  element: 'bar-example',
-  data: [
-    { y: '2006', a: 100 },
-    { y: '2007', a: 75 },
-    { y: '2008', a: 50 },
-    { y: '2009', a: 75 },
-    { y: '2010', a: 50 },
-    { y: '2011', a: 75 },
-    { y: '2012', a: 100 }
-  ],
-  xkey: 'y',
-  ykeys: ['a'],
-  labels: ['Series A']
-});
-
-Morris.Donut({
-  element: 'donut-example',
-  data: [
-    {label: "Current Score", value: 70},
-    {label: "To reach Next Level", value: 30}
-    //{label: "Mail-Order Sales", value: 20}
-    ],
-  colors: ["#2f2f2f","#efefef"]
-});
-
-</script>
-<script src="js/menu_jquery.js"></script>

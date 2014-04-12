@@ -599,3 +599,26 @@ function getUserInfo($profile_id)
 }
 
 
+function getSubjectIdsForBranch($b_id)
+{
+    $query = "Select sub_id FROM branch_sub_map WHERE `branch_id` = ?";
+     global $conn;
+     
+     $q = $conn->prepare($query);
+
+                            if ($q === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+                            
+                            $q->bind_param("i",$sid);
+                            $sid = $b_id;
+                            $q->execute();
+                            $q->bind_result($subs);
+                            while($q->fetch())
+                            {
+                                $subjects[] = $subs;
+                            }
+                            return $subjects;
+}
+
+
