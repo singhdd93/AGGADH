@@ -39,17 +39,19 @@
                                                 <input type="email" name="email" value="" placeholder="Email" />
                                                 </div>
                                                 <div class="input">
-                                                    
-                                                <input type="password" name="pass" value="" placeholder="Password" />
+                                                <input type="password" name="pass" value="" id="password" placeholder="Password" />
+                                                <div class="input password_strength" id="password_strength">
                                                 </div>
+                                                </div>
+                                                
                                                 <div class="input">
-                                                    
                                                 <input type="password" name="confirmpass" value="" placeholder="Confirm Password" />
                                                 </div>
-                                                <div class="input">
+                                                
+                                              <!--  <div class="input">
                                                     
                                                 <input type="text" name="captcha" value="" placeholder="Confirm Password" />
-                                                </div>
+                                                </div>-->
                                                 <div class="actions">
                                                 <input type="submit" name="submit" value="Sign Up" />
                                                 </div>

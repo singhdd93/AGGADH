@@ -2308,3 +2308,31 @@ form#newsletter input[type=submit] {
     border-radius: 3px;
     padding: 4px 10px;
 }
+
+.input password_strength {
+	display:block;
+	width:180px;
+	padding:3px;
+	text-align:center;
+	//color:#333;
+	font-size:14px;
+	backface-visibility:#FFF;
+	font-weight:bold;
+}
+/* Password strength indicator classes weak, normal, strong, verystrong*/
+.password_strength.weak{
+	background:#e84c3d;
+        color:#FFF;
+}
+.password_strength.normal{
+	background:#f1c40f;
+        color:#FFF;
+}
+.password_strength.strong{
+	background:#27ae61;
+        color:#FFF;
+}
+.password_strength.verystrong{
+	background:#2dcc70;
+	color:#FFF;
+}
