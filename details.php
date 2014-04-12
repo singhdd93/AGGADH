@@ -180,7 +180,7 @@
                 . "<p>Thank You</p>";
             }
             $qd->close();
-           
+            addUserTable($us_name);
         }
         ?>
         
