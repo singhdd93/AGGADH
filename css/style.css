@@ -2305,9 +2305,15 @@ form#newsletter input[type=submit] {
 {
     background-color: #317CF9;
     color: #ffffff;
-    border-radius: 3px;
+    border-radius: 5px;
     padding: 4px 10px;
 }
+
+
+#question h4{
+    color: #fff;
+}
+
 
 .input password_strength {
 	display:block;

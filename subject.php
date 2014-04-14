@@ -62,11 +62,12 @@ if(!isset($_SESSION['user'])){
 
                    while ($row = $arr->fetch_array()) {
                        
-                       $testinfo = getUserTestInfo($info['user_name'], $row['topic_id']);?>
+                       $testinfo = getUserTestInfo($info['user_name'], $row['topic_id']);
+                       ?>
             <tr class="warning">
                 <td><span><? echo $row['topic_name'];?></span></td>
-                <td><span><? echo $testinfo['attempts']?></span></td>
-                <td><span><? echo $testinfo['marks']?>%</span></td>
+                <td><span><? echo $testinfo['attempts'];?></span></td>
+                <td><span><? echo $testinfo['marks'];?>%</span></td>
                 <td><a href="test.php?sub-slug=<? echo $sub_slug;?>&topic=<? echo $row['topic_id']; ?>&level=<? echo $level; ?>" class="btn btn-danger">Take Test</a></td>
             </tr>
                    <?}
@@ -87,7 +88,7 @@ if(!isset($_SESSION['user'])){
  var data="sub=<? echo $sub_slug; ?>&subid=<? echo $sid; ?>&un=<? echo $info['user_name']; ?>";
    $.ajax({
  
-       url: "data.php",
+    url: "data.php",
     cache: false,
     type: "POST",
     data: data,

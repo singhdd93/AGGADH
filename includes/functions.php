@@ -643,7 +643,7 @@ function getSubjectIdsForBranch($b_id)
 
 function getUserTestInfo($uname,$topic_id)
 {
-    $query = "Select marks,attempts,level FROM `user_$uname` WHERE `topic_id` = ?";
+    $query = "Select marks, attempts, level FROM user_$uname WHERE `topic_id` = ?";
      global $conn;
      
      $q = $conn->prepare($query);
@@ -656,6 +656,7 @@ function getUserTestInfo($uname,$topic_id)
                             $sid = $topic_id;
                             $q->execute();
                             $q->bind_result($marks,$attempts,$level);
+                            $q->fetch();
                             $info['marks']=$marks;
                             $info['attempts'] = $attempts;
                             $info['level'] = $level;
@@ -677,9 +678,78 @@ function getUserLevel($uname,$sub_id)
                             $q->bind_param("i",$sid);
                             $sid = $sub_id;
                             $q->execute();
-                            $q->bind_result($level);                          
+                            $q->bind_result($level); 
+                            $q->fetch();
                             $q->close();
                             return $level;
+}
+
+function getAttemptsAndMarks($un, $topic_id, $level_id)
+{
+    $query = "Select attempts, marks FROM `user_$un` WHERE `topic_id` = ? AND `level` = ?";
+     global $conn;
+     
+     $q = $conn->prepare($query);
+
+                            if ($q === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+                            
+                            $q->bind_param("ii",$sid,$lid);
+                            $sid = $topic_id;
+                            $lid = $level_id;
+                            $q->execute();
+                            $q->bind_result($at,$mark); 
+                            $q->fetch();
+                            $ret['attempts'] = $at;
+                            $ret['marks'] = $mark;
+                            $q->close();
+                            return $ret;
+}
+
+function updateAttemptsAndMarks($un, $topic_id, $level_id,$marks,$att)
+{
+    $query = "Update `user_$un` SET `attempts` = ? , `marks` = ? WHERE `topic_id` = ? AND `level` = ?";
+     global $conn;
+     
+     $q = $conn->prepare($query);
+
+                            if ($q === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+                            
+                            $q->bind_param("iiii",$attem,$mrks,$sid,$lid);
+                            $attem =$att;
+                            $mrks = $marks;
+                            $sid = $topic_id;
+                            $lid = $level_id;
+                            $q->execute();
+                            $ret = $q->affected_rows;
+                            $q->close();
+                            return $ret;
+}
+
+
+function addAttemptsAndMarks($un, $topic_id, $level_id,$marks,$att)
+{
+    $query = "Insert into `user_$un` values(null, ?, ?, ? ,?)";
+     global $conn;
+     
+     $q = $conn->prepare($query);
+
+                            if ($q === FALSE) {
+                                trigger_error('Error: ' . $conn->error, E_USER_ERROR);
+                            }
+                            
+                            $q->bind_param("iiii",$topi,$mrks,$attem,$lid);
+                            $topi = $topic_id;
+                            $mrks = $marks;
+                            $attem =$att;
+                            $lid = $level_id;
+                            $q->execute();
+                            $ret = $q->affected_rows;
+                            $q->close();
+                            return $ret;
 }
 
 
