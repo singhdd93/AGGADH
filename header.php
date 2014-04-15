@@ -96,7 +96,7 @@ ob_start();?><!DOCTYPE html>
                                         <li class="<?=echoActiveClassIfRequestMatches("index")?>"><a href="index.php">Home</a></li>
                                         <li class="<?=echoActiveClassIfRequestMatches("about")?>"><a href="about.php">About</a></li>
                                         <li class="<?=echoActiveClassIfRequestMatches("services")?>"><a href="">Services</a></li>
-                                        <li class="<?=echoActiveClassIfRequestMatches("contact")?>"><a href="">Contact</a></li>
+                                        <li class="<?=echoActiveClassIfRequestMatches("contact")?>"><a href="contact.php">Contact</a></li>
                                         <? if(!isset($_SESSION['user'])) {?> <li class="<?=echoActiveClassIfRequestMatches("signup")?>"><a href="signup.php">Sign Up</a></li> <? } ?>
                                         <? if(!isset($_SESSION['user']))
                                         {?>
