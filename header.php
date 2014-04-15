@@ -24,7 +24,10 @@ ob_start();?><!DOCTYPE html>
 
         <?
         include './includes/functions.php';
-        $info=  getUserInfo($_SESSION['user']);
+        if(isset($_SESSION['user']))
+        {
+            $info=  getUserInfo($_SESSION['user']);
+        }
 
         function echoActiveClassIfRequestMatches($requestUri) {
             $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
