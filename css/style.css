@@ -2338,3 +2338,16 @@ form#newsletter input[type=submit] {
 .password_strength.verystrong{
 	color:#2dcc70;
 }
+
+#eeconfirm h3
+{
+    text-align: center;
+    padding: 20px;
+}
+
+#eeconfirm p
+{
+    padding-left: 30px;
+    font-size: 20px;
+    line-height: 25px;
+}

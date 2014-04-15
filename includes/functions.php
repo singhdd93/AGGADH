@@ -220,6 +220,16 @@ function addSubjectsTable($subSlug)
     $q = $conn->query($query); 
 }
 
+function modifyUserTable($uname)
+{global $conn;
+    $query2="ALTER TABLE `user_$uname`
+  ADD CONSTRAINT `user_'$uname'_ibfk_2` FOREIGN KEY (`level`) REFERENCES `level` (`level_id`),
+  ADD CONSTRAINT `user_'$uname'_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `topics` (`topic_id`);";
+    
+    $qs = $conn->query($query2); 
+
+}
+
 function addUserTable($uname){
     global $conn;
     $query = "CREATE TABLE IF NOT EXISTS `user_$uname` (
@@ -235,12 +245,10 @@ function addUserTable($uname){
     
     $q = $conn->query($query); 
     
-    $query2="ALTER TABLE `user_$uname`
-  ADD CONSTRAINT `user_'$uname'_ibfk_2` FOREIGN KEY (`level`) REFERENCES `level` (`level_id`),
-  ADD CONSTRAINT `user_'$uname'_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `topics` (`topic_id`);";
-    
-    $qs = $conn->query($query2); 
+    modifyUserTable($uname);
 }
+
+
 
 function delSubjectsTable($subSlug)
 {

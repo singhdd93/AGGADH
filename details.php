@@ -175,12 +175,20 @@
             $qd->execute();
             $rows = $qd->affected_rows;
             if ($rows == 1) {
-                echo "<p> Your Details have been added.</p>"
+                echo "<div id='eeconfirm' class='row-fluid'><p> Your Details have been added.</p>"
                 . "<p>Please Login with your Username & Password</p>"
-                . "<p>Thank You</p>";
+                . "<p>Thank You</p>"
+                        . "<p>You will be redirected to Login Page in 5 Seconds</p></div>";
+                ?>
+                <script type="text/javascript">
+                    window.setTimeout(function() {
+                        location.href = 'login.php';
+                    }, 5000);
+        </script>
+        <?
             }
             $qd->close();
-            addUserTable($us_name);
+            addUserTable($_POST['user_name']);
         }
         ?>
         
