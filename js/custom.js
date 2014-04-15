@@ -1,25 +1,9 @@
 jQuery(document).ready(function($){
 	
-	/* ------------------- Client Carousel --------------------- */
-
-	$('.clients-carousel').flexslider({
-	    animation: "slide",
-		easing: "swing",
-	    animationLoop: true,
-	    itemWidth: 188,
-	    itemMargin: 0,
-	    minItems: 1,
-	    maxItems: 5,
-		controlNav: false,
-		directionNav: false,
-		move: 1
-      });
-
-
 	/* ------------------ Back To Top ------------------- */
 
 	jQuery('#footer-menu-back-to-top a').click(function(){
-		jQuery('html, body').animate({scrollTop:0}, 300); 
+		jQuery('html, body').animate({scrollTop:0}, 1000); 
 		return false; 
 	});
 	
@@ -35,7 +19,7 @@ jQuery(document).ready(function($){
 		});
 	});
 
-	/* --------------------- Tabs ------------------------ */	
+	/* --------------------- Tabs ------------------------ 	We are not Using this ATM
 
 		(function() {
 
@@ -64,7 +48,7 @@ jQuery(document).ready(function($){
 				e.preventDefault();
 			});
 
-		})();
+		})();*/
 		
 			
 });
