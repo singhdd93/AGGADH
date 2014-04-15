@@ -22,14 +22,14 @@ if(!isset($_SESSION['user'])){
     </div>
     
     <div class="ques-container">
-        <form method="POST" action="score.php?count=<? echo $count;?>&topic=<? echo $_GET['topic']; ?>&level=<? echo $_GET['level']; ?>&sub-slug=<? echo $_GET['sub-slug']; ?>">
+        <form id="testview" method="POST" action="score.php?count=<? echo $count;?>&topic=<? echo $_GET['topic']; ?>&level=<? echo $_GET['level']; ?>&sub-slug=<? echo $_GET['sub-slug']; ?>">
     <? 
     $i=1;
      while($row = $arr -> fetch_array())
      {
     ?>
     
-    <div class="row-fluid">
+            <div class="row-fluid">
         
         <div class="row-fluid">
             <div class="span12">
@@ -39,10 +39,10 @@ if(!isset($_SESSION['user'])){
         <div class="row-fluid">
             
             <div class="span6">
-                <input type="radio" name="q<? echo $i;?>" value="a" /> <label><? echo htmlspecialchars($row['op_a']);?></label>
+                <input type="radio" id="r<? echo $i;?>a" required="required" name="q<? echo $i;?>" value="a" /> <label for="r<? echo $i;?>a"><? echo htmlspecialchars($row['op_a']);?></label>
             </div>
             <div class="span6">
-                <input type="radio" name="q<? echo $i;?>" value="b" /> <label><? echo htmlspecialchars($row['op_b']);?></label>
+                <input type="radio"  id="r<? echo $i;?>b" required="required" name="q<? echo $i;?>" value="b" /> <label for="r<? echo $i;?>b"><? echo htmlspecialchars($row['op_b']);?></label>
             </div>
             
         </div>
@@ -50,10 +50,10 @@ if(!isset($_SESSION['user'])){
         <div class="row-fluid">
             
             <div class="span6">
-                <input type="radio" name="q<? echo $i;?>" value="c" /> <label><? echo htmlspecialchars($row['op_c']);?></label>
+                <input type="radio" id="r<? echo $i;?>c" required="required" name="q<? echo $i;?>" value="c" /> <label for="r<? echo $i;?>c"><? echo htmlspecialchars($row['op_c']);?></label>
             </div>
             <div class="span6">
-                <input type="radio" name="q<? echo $i;?>" value="d" /> <label><? echo htmlspecialchars($row['op_d']);?></label>
+                <input type="radio" id="r<? echo $i;?>d" required="required" name="q<? echo $i;?>" value="d" /> <label for="r<? echo $i;?>d"><? echo htmlspecialchars($row['op_d']);?></label>
             </div>
             
         </div>

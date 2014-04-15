@@ -24,14 +24,7 @@ ob_start();?><!DOCTYPE html>
 
         <?
         include './includes/functions.php';
-        if (!isset($_SESSION['user'])) {
-            ?>
-            <script type="text/javascript">
-                // alert("Not Logged In");
-            </script>   
-
-            <?
-        }
+        $info=  getUserInfo($_SESSION['user']);
 
         function echoActiveClassIfRequestMatches($requestUri) {
             $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
@@ -95,7 +88,7 @@ ob_start();?><!DOCTYPE html>
                                       
                                         <li class="<?=echoActiveClassIfRequestMatches("index")?>"><a href="index.php">Home</a></li>
                                         <li class="<?=echoActiveClassIfRequestMatches("about")?>"><a href="about.php">About</a></li>
-                                        <li class="<?=echoActiveClassIfRequestMatches("services")?>"><a href="">Services</a></li>
+                                        <li class="<?=echoActiveClassIfRequestMatches("services")?>"><a href="services">Services</a></li>
                                         <li class="<?=echoActiveClassIfRequestMatches("contact")?>"><a href="contact.php">Contact</a></li>
                                         <? if(!isset($_SESSION['user'])) {?> <li class="<?=echoActiveClassIfRequestMatches("signup")?>"><a href="signup.php">Sign Up</a></li> <? } ?>
                                         <? if(!isset($_SESSION['user']))
@@ -131,8 +124,28 @@ ob_start();?><!DOCTYPE html>
                                         ?>
                                         
                                         <? if(isset($_SESSION['user']))
+                                        {?>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Start Test <b class="caret"></b></a>
+
+                                            
+                                            <ul class="dropdown-menu">                                 
+                                                        <? $subs = getSubjectIdsForBranch($info['branch_id']);
+                                                foreach ($subs as $s)
+                                                {
+                                                    $subjecttt = getSubjectInfo($s);?>
+                                                    <li><a href="subject.php?sub=<?echo $subjecttt[1]; ?>&subid=<? echo $s; ?>"><?  echo $subjecttt[0];?></a></li>
+                                                    <li class="divider"></li>
+                                            <?}
+                                    ?>                                                                
+                                            </ul>                                                 
+                                        </li>
+                                        <? }
+                                        ?>
+                                        
+                                        <? if(isset($_SESSION['user']))
                                         {
-                                            $info=  getUserInfo($_SESSION['user']);?>
+                                            ?>
                                         <li class="dropdown <?=echoActiveClassIfRequestMatches("profile")?><?=echoActiveClassIfRequestMatches("subject")?>">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><? echo $info['name'] ?> <b class="caret"></b></a>
 
@@ -146,7 +159,7 @@ ob_start();?><!DOCTYPE html>
                                             </ul>                                                 
                                         </li>
                                         <? }
-                                        ?>
+                                        ?>                                   
                                     </ul>
                                 </div>
                             </div>

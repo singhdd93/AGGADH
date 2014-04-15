@@ -2303,6 +2303,8 @@ form#newsletter input[type=submit] {
 
 #question
 {
+    margin-top: 25px;
+    margin-bottom: 10px;
     background-color: #317CF9;
     color: #ffffff;
     border-radius: 5px;
@@ -2350,4 +2352,14 @@ form#newsletter input[type=submit] {
     padding-left: 30px;
     font-size: 20px;
     line-height: 25px;
+}
+
+
+#testview label{
+    margin: 0;
+    padding: 0 0 0 10px;
+    display: inline;
+    line-height: 25px;
+    vertical-align: middle;
+    
 }
