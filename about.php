@@ -149,9 +149,9 @@
 									<div class="mask">
 										<h2>About Me</h2>
 										<p>
-											Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
-										</p>
-										<a href="#" class="info">My Personal Page</a>
+                                                                                    I am Gurjot Singh, student of B.Tech (Computer Science Engg.) at Guru Nanak Dev Engg. College, Ludhiana. I am a experienced Web Developer and designer with quite a few projects running well.
+                                                                                    <br/><br/>You can contact me on my Personal Website.</p>
+										<a href="http://bhattigurjot.wordpress.com" class="info">My Personal Page</a>
 									</div>
 								</div>
 								<div class="clear"></div>
@@ -175,9 +175,9 @@
 									<div class="mask">
 										<h2>About Me</h2>
 										<p>
-											Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
-										</p>
-										<a href="#" class="info">My Personal Page</a>
+                                                                                    I am Gurwinder Singh, student of B.Tech (Computer Science Engg.) at Guru Nanak Dev Engg. College, Ludhiana. I am a Web Developer and a Content Writer.
+                                                                                    <br/><br/>You can contact me on my Personal Website.</p>
+										<a href="http://gurwindersinghbains.wordpress.com" class="info">My Personal Page</a>
 									</div>
 								</div>
 								<div class="clear"></div>
